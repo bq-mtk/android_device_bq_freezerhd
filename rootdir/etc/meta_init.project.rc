@@ -1,0 +1,12 @@
+#INTERNAL_START
+on init
+# Temp Backward compatibility
+    symlink /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/kb /dev/kb
+    symlink /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/dkb /dev/dkb
+
+on post-fs
+
+
+on boot
+
+#INTERNAL_END

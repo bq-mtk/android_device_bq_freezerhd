@@ -1,0 +1,198 @@
+# NVRAM
+etc/apdb/APDB_MT8163_S01_alps-mp-o1.mp5_W18.48
+etc/apdb/APDB_MT8163_S01_alps-mp-o1.mp5_W18.48_ENUM
+lib/libcustom_prop.so
+lib64/libcustom_prop.so
+lib64/libfile_op_mtk.so
+lib/libcustom_nvram_mtk.so
+lib64/libcustom_nvram_mtk.so
+lib64/vendor.mediatek.hardware.nvram@1.0.so
+lib/vendor.mediatek.hardware.nvram@1.0.so
+lib/libnvram_mtk.so
+lib64/libnvram_mtk.so
+lib/libnvram_platform_mtk.so
+lib64/libnvram_platform_mtk.so
+lib/libnvram_sec_mtk.so
+lib64/libnvram_sec_mtk.so
+lib/libcustom_jni.so
+lib64/libcustom_jni.so
+
+# Radio
+bin/atcid
+etc/init/atcid.rc
+lib64/vendor.mediatek.hardware.radio@2.0.so
+lib/libfmjni.so
+lib64/libfmjni.so
+
+# Audio
+bin/audiocmdservice_atci
+etc/init/audiocmdservice_atci.rc
+lib/libmtk_drvb_sys.so
+lib64/libmtk_drvb_sys.so
+lib/libblisrc.so
+lib64/libblisrc.so
+lib/libblisrc32.so
+lib64/libblisrc32.so
+lib/libbessound_hd_mtk.so
+lib64/libbessound_hd_mtk.so
+lib/libaudiotoolkit.so
+lib64/libaudiotoolkit.so
+lib/libaudiopolicycustomextensions.so
+lib64/libaudiopolicycustomextensions.so
+lib/libaudiodcrflt.so
+lib64/libaudiodcrflt.so
+lib/libaudiocustparam.so
+lib64/libaudiocustparam.so
+lib/libaudiocomponentengine.so
+lib64/libaudiocomponentengine.so
+lib/libaudiocompensationfilter.so
+lib64/libaudiocompensationfilter.so
+etc/usb_audio_policy_configuration.xml
+etc/r_submix_audio_policy_configuration.xml
+etc/audio_policy_volumes.xml
+etc/audio_policy_configuration.xml
+etc/audio_policy_configuration_stub.xml
+etc/a2dp_audio_policy_configuration.xml
+etc/default_volume_tables.xml
+
+# Storage
+bin/dm_agent_binder
+etc/init/dm_agent_binder.rc
+bin/storagemanagerd
+etc/init/storagemanagerd.rc
+
+# Thermal
+bin/thermald
+etc/init/init.thermald.rc
+lib64/libterservice.so
+etc/init/terserver.rc
+bin/tertestclient
+bin/terservice
+
+# Sensors
+lib64/libhwm_mtk.so
+
+# Serial Number (S/N)
+bin/sn
+etc/init/sn.rc
+
+# Priv-app permissions
+etc/permissions/mediatek-packages-teleservice.xml
+etc/permissions/privapp-permissions-mediatek.xml
+
+# Graphics
+lib64/vendor.mediatek.hardware.pq@2.0.so
+lib/vendor.mediatek.hardware.pq@2.0.so
+bin/ged_srv
+etc/init/ged_srv.rc
+lib64/libged_sys.so
+lib64/libged_kpi.so
+lib/libged_sys.so
+lib/libged_kpi.so
+lib64/libgralloc_extra_sys.so
+lib/libgralloc_extra_sys.so
+lib64/libui_ext_fwk.so
+lib/libui_ext_fwk.so
+lib/libMiraVision_jni.so
+lib64/libMiraVision_jni.so
+lib/libminiui.so
+lib64/libminiui.so
+lib/libjni_pq.so
+lib64/libjni_pq.so
+lib/libgui_debug.so
+lib64/libgui_debug.so
+lib/libcorrect_hw_rotation.so
+lib64/libcorrect_hw_rotation.so
+lib/libaal.so
+lib64/libaal.so
+lib/libpq_cust_mtk.so
+lib64/libpq_cust_mtk.so
+
+# Camera
+lib64/vendor.mediatek.hardware.camera.device@1.1.so
+lib/vendor.mediatek.hardware.camera.device@1.1.so
+lib64/libfilterpack_facedetect.so
+
+# Power
+lib64/vendor.mediatek.hardware.power@1.1.so
+lib/vendor.mediatek.hardware.power@1.1.so
+
+# Kernel Poweroff Charging (KPOC)
+bin/kpoc_charger
+etc/init/kpoc_charger.rc
+lib/libsysenv_system.so
+lib/libshowlogo.so
+
+# Bluetooth
+etc/bluetooth/mtk_bt_fw.conf
+etc/bluetooth/mtk_bt_stack.conf
+lib64/libmtkbluetooth_jni.so
+
+# MISC
+lib/libmtkavenhancements.so
+lib64/libmtkavenhancements.so
+lib/libmtklimiter.so
+lib64/libmtklimiter.so
+lib/libmtkshifter.so
+lib64/libmtkshifter.so
+lib/libxtables.so
+lib64/libxtables.so
+lib/libxml2.so
+lib64/libxml2.so
+lib/libvoicerecognition.so
+lib/libvoicerecognition_jni.so
+lib/libsf_debug.so
+lib64/libsf_debug.so
+lib/libmesh.so
+lib64/libmesh.so
+lib/libmediatek_exceptionlog.so
+lib64/libmediatek_exceptionlog.so
+lib/libja3m.so
+lib64/libja3m.so
+lib64/libdcfdecoderjni.so
+etc/init/batterywarning.rc
+etc/apns-conf.xml
+bin/vintf
+bin/met-cmd
+bin/meta_tst
+bin/lcdc_screen_cap
+bin/batterywarning
+bin/badblocks
+
+# KeyMaster
+lib/vendor.mediatek.hardware.keymaster_attestation@1.0.so
+lib64/vendor.mediatek.hardware.keymaster_attestation@1.0.so
+lib/vendor.mediatek.hardware.keymanage@1.0.so
+lib64/vendor.mediatek.hardware.keymanage@1.0.so
+lib64/libkmsetkey.so
+
+# DFPS
+lib/vendor.mediatek.hardware.dfps@1.0.so
+lib64/vendor.mediatek.hardware.dfps@1.0.so
+
+# OMX
+lib/libyv12util.so
+lib64/libyv12util.so
+lib/libstagefright_wfd_mtk.so
+lib64/libstagefright_wfd_mtk.so
+
+# Wi-Fi
+lib64/libwifitest_mtk.so
+etc/wifi-apns.xml
+
+# Wireless Display
+bin/wfd
+
+# VT
+lib/libvsync_hint.so
+lib64/libvsync_hint.so
+lib/libvsync_enhance.so
+lib64/libvsync_enhance.so
+
+# Widevine
+lib/libfw_drmutils.so
+lib64/libfw_drmutils.so
+lib/libdrmmtkutil.so
+lib64/libdrmmtkutil.so
+lib/libdrmmtkwhitelist.so
+lib64/libdrmmtkwhitelist.so
