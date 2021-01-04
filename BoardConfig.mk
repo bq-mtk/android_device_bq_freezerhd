@@ -31,6 +31,9 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
 
+# 64 bit binder
+TARGET_USES_64_BIT_BINDER := true
+
 # Kernel Config
 TARGET_PREBUILT_KERNEL := device/bq/freezerhd/prebuilt/zImage
 TARGET_KERNEL_ARCH := arm64
