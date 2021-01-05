@@ -77,7 +77,8 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    libcamera_parameters_mtk
+    libcamera_parameters_mtk \
+    Snap
 
 # Ramdisk
 PRODUCT_PACKAGES += \
