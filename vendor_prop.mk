@@ -131,7 +131,7 @@ PRODUCT_PROPERTY_OVERRIDES +=  \
     ro.mtk_hdmi_support=1 \
     ro.hwc.disable_rotate_for_lcm=1 \
     ro.has_gota=false \
-    
+    persist.sys.display.clearMotion=1
 
 # Force Lock Screen Rotation
 PRODUCT_PROPERTY_OVERRIDES += \
