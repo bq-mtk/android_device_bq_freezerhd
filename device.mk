@@ -155,6 +155,9 @@ PRODUCT_PACKAGES += \
     libbluetooth_mtk \
     libbt-vendor 
 
+# BT MAC
+PRODUCT_PROPERTY_OVERRIDES += ro.boot.btmacaddr=00:00:00:00:00:00
+
 # MTKRC Path
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.mtkrc.path=/vendor/etc/init/hw/
