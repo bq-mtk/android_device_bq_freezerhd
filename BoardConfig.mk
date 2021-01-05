@@ -35,11 +35,23 @@ TARGET_2ND_CPU_VARIANT := cortex-a53
 TARGET_USES_64_BIT_BINDER := true
 
 # Kernel Config
-TARGET_PREBUILT_KERNEL := device/bq/freezerhd/prebuilt/zImage
+TARGET_USES_PREBUILT_KERNEL := false
+
+ifeq ($(TARGET_USES_PREBUILT_KERNEL),true)
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/zImage
+PRODUCT_COPY_FILES += \
+    $(TARGET_PREBUILT_KERNEL):kernel
+else
 TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(shell pwd)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-
+TARGET_KERNEL_CONFIG := lineageos_freezerhd_defconfig
+TARGET_KERNEL_SOURCE := kernel/bq/freezerhd
+endif
+
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_CMDLINE := "bootopt=64S3,32N2,64N2 buildvariant=userdebug androidboot.selinux=permissive"
 BOARD_MKBOOTIMG_ARGS := --pagesize 2048 --base 0x40078000 --kernel_offset 0x00008000 --ramdisk_offset 0x14f88000 --second_offset 0x00e88000 --tags_offset 0x13f88000 --cmdline $(BOARD_KERNEL_CMDLINE)
-BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 
 # For Mediatek Boot Image Headers
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
