@@ -135,7 +135,7 @@ PRODUCT_PACKAGES += \
 
 # EGL
 PRODUCT_PACKAGES += \
-  libGLES_android
+    libGLES_android
 
 # Net
 PRODUCT_PACKAGES += \
