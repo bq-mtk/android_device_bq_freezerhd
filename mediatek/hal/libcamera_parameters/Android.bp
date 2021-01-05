@@ -8,6 +8,6 @@ cc_library_static {
     export_include_dirs: ["."],
 
     include_dirs: [
-        "device/bn/st18c7bnn/include",
+        "device/bq/freezerhd/include",
     ]
 }
