@@ -37,7 +37,7 @@ TARGET_USES_64_BIT_BINDER := true
 # Kernel Config
 TARGET_PREBUILT_KERNEL := device/bq/freezerhd/prebuilt/zImage
 TARGET_KERNEL_ARCH := arm64
-BOARD_KERNEL_CMDLINE := "bootopt=64S3,32N2,32N2 buildvariant=userdebug androidboot.selinux=permissive"
+BOARD_KERNEL_CMDLINE := "bootopt=64S3,32N2,64N2 buildvariant=userdebug androidboot.selinux=permissive"
 BOARD_MKBOOTIMG_ARGS := --pagesize 2048 --base 0x40078000 --kernel_offset 0x00008000 --ramdisk_offset 0x14f88000 --second_offset 0x00e88000 --tags_offset 0x13f88000 --cmdline $(BOARD_KERNEL_CMDLINE)
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 
