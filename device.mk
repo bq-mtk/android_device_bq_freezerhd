@@ -79,6 +79,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libcamera_parameters_mtk \
     Snap
+    
+# GPS
+PRODUCT_PACKAGES += \
+    libcurl
 
 # Ramdisk
 PRODUCT_PACKAGES += \
