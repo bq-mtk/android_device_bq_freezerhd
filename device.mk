@@ -148,7 +148,8 @@ PRODUCT_PACKAGES += \
 
 # Net
 PRODUCT_PACKAGES += \
-    netutils-wrapper-1.0
+    netutils-wrapper-1.0 \
+    libandroid_net
 
 # Other (Misc)
 PRODUCT_PACKAGES += \
