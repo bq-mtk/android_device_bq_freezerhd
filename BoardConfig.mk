@@ -134,19 +134,19 @@ BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/seccomp
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
-        $(DEVICE_PATH)/sepolicy-mtk/basic/non_plat \
-        $(DEVICE_PATH)/sepolicy-mtk/bsp/non_plat \
-        $(DEVICE_PATH)/sepolicy-mt8163/basic \
-        $(DEVICE_PATH)/sepolicy-mt8163/bsp \
+        $(DEVICE_PATH)/sepolicy/mtk/basic/non_plat \
+        $(DEVICE_PATH)/sepolicy/mtk/bsp/non_plat \
+        $(DEVICE_PATH)/sepolicy/mt8163/basic \
+        $(DEVICE_PATH)/sepolicy/mt8163/bsp \
         $(DEVICE_PATH)/sepolicy
 
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
-        $(DEVICE_PATH)/sepolicy-mtk/basic/plat_public \
-        $(DEVICE_PATH)/sepolicy-mtk/bsp/plat_public
+        $(DEVICE_PATH)/sepolicy/mtk/basic/plat_public \
+        $(DEVICE_PATH)/sepolicy/mtk/bsp/plat_public
 
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
-        $(DEVICE_PATH)/sepolicy-mtk/basic/plat_private \
-        $(DEVICE_PATH)/sepolicy-mtk/bsp/plat_private
+        $(DEVICE_PATH)/sepolicy/mtk/basic/plat_private \
+        $(DEVICE_PATH)/sepolicy/mtk/bsp/plat_private
 
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
