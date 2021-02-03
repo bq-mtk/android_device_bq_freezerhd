@@ -10,7 +10,7 @@ GPU     | MediaTek Mali-T720 MP2 600 MHz
 Memory  | 2 GB
 Shipped Android Version | Android 5.1 upgradable to 6.0.1 and 8.1
 Storage | 16/32 GB
-MicroSD | 32 GB
+MicroSD | 256 GB
 Battery | LiPo 7280 mAh (non-removable)
 Dimensions | 171mm / 246mm / 8,2mm
 Display | 1200 x 1920 pixels, 10" FHD
