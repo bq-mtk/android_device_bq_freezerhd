@@ -1,0 +1,22 @@
+on init
+    # Override fingerprint
+    setprop ro.build.fingerprint ${ro.vendor.build.fingerprint}
+
+on init
+    setprop sys.usb.ffs.aio_compat 1
+    setprop persist.adb.nonblocking_ffs 0
+    setprop ro.adb.nonblocking_ffs 0
+    setprop persist.sys.usb.config adb
+
+    # Custom overrides that need to happen right on boot
+    # Override vendor fstab
+    # We only need it to be overridden before things are mounted
+    mount none /system/etc/fstab.mt8163 /vendor/etc/fstab.mt8163 bind
+
+on post-fs
+    # Disable vendor overlays
+    mount none /dev/null vendor/overlay/framework-res__auto_generated_rro.apk bind
+    mount none /dev/null vendor/overlay/SysuiDarkTheme/SysuiDarkThemeOverlay.apk bind
+    mount none /dev/null vendor/overlay/DisplayCutoutEmulationTall/DisplayCutoutEmulationTallOverlay.apk bind
+    mount none /dev/null vendor/overlay/DisplayCutoutEmulationDouble/DisplayCutoutEmulationDoubleOverlay.apk bind
+    mount none /dev/null vendor/overlay/DisplayCutoutEmulationCorner/DisplayCutoutEmulationCornerOverlay.apk bind
