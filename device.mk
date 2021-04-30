@@ -24,6 +24,7 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 # Init
 PRODUCT_PACKAGES += \
     init.mt8163.rc \
+    init.mt8163.usb.rc \
     fstab.mt8163 \
     fstab.enableswap
 
