@@ -1,3 +1,12 @@
+# HDMI
+bin/hdmi
+lib/libhdmi.so
+lib/libhdmiservice.so
+lib/vendor.mediatek.hardware.keymanage@1.0.so
+lib64/libhdmi.so
+lib64/libhdmiservice.so
+lib64/vendor.mediatek.hardware.keymanage@1.0.so
+
 # Offline Charging
 bin/kpoc_charger
 etc/init/kpoc_charger.rc
