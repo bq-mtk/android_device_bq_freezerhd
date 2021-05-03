@@ -69,3 +69,6 @@ BOARD_ROOT_EXTRA_FOLDERS := nvcfg nvdata protect_f protect_s
 BOARD_VNDK_VERSION  := current
 BOARD_VNDK_RUNTIME_DISABLE := true
 TARGET_COPY_OUT_VENDOR := vendor
+
+# System prop
+TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
