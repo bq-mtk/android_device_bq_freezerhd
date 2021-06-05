@@ -304,12 +304,6 @@ vendor/etc/.tp/thermal.off.conf
 vendor/etc/init/init.thermal.rc
 vendor/etc/init/init.thermal_manager.rc
 
-# Vibrator
-vendor/bin/hw/android.hardware.vibrator@1.0-service
-vendor/etc/init/android.hardware.vibrator@1.0-service.rc
-vendor/lib/hw/android.hardware.vibrator@1.0-impl.so
-vendor/lib64/hw/android.hardware.vibrator@1.0-impl.so
-
 # WiFi
 vendor/bin/hw/android.hardware.wifi@1.0-service
 vendor/etc/init/android.hardware.wifi@1.0-service.rc
