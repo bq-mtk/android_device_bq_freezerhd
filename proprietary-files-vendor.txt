@@ -130,13 +130,6 @@ vendor/bin/hw/camerahalserver
 # DRM-HDCP
 vendor/bin/hdcpkey
 
-# DRM-Hardware
-vendor/bin/hw/android.hardware.drm@1.0-service
-vendor/bin/hw/android.hardware.drm@1.0-service.widevine
-vendor/etc/init/android.hardware.drm@1.0-service.rc
-vendor/etc/init/android.hardware.drm@1.0-service.widevine.rc
-vendor/lib/hw/android.hardware.drm@1.0-impl.so
-
 # DRM-Widevine
 vendor/lib/libwvhidl.so
 vendor/lib/mediadrm/libdrmclearkeyplugin.so
