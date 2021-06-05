@@ -127,10 +127,6 @@ vendor/lib64/vendor.mediatek.hardware.camera.device@1.1_vendor.so
 # Camera-bin
 vendor/bin/hw/camerahalserver
 
-# Configstore
-vendor/bin/hw/android.hardware.configstore@1.0-service
-vendor/etc/init/android.hardware.configstore@1.0-service.rc
-
 # DRM-HDCP
 vendor/bin/hdcpkey
 
