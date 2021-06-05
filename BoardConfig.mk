@@ -1,5 +1,4 @@
 DEVICE_PATH := device/bq/freezerhd
-BOARD_VENDOR := bq
 
 # HIDL
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
