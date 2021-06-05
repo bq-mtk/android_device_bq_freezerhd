@@ -14,7 +14,6 @@
 # limitations under the License.
 
 LOCAL_PATH := device/bq/freezerhd
-DEVICE_FOLDER := device/bq/freezerhd
 
 # Build Date
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
