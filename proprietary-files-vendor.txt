@@ -304,10 +304,6 @@ vendor/etc/.tp/thermal.off.conf
 vendor/etc/init/init.thermal.rc
 vendor/etc/init/init.thermal_manager.rc
 
-# WiFi
-vendor/bin/hw/android.hardware.wifi@1.0-service
-vendor/etc/init/android.hardware.wifi@1.0-service.rc
-
 # Misc
 vendor/bin/aeev
 vendor/bin/aee_aedv
