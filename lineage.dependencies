@@ -1,0 +1,14 @@
+[
+    {
+        "remote":       "github",
+        "repository":   "bq-mtk/android_kernel_bq_freezerhd",
+        "target_path":  "kernel/bq/freezerhd",
+        "revision":     "lineage-15.1"
+    },
+    {
+        "remote":       "github",
+        "repository":   "bq-mtk/android_vendor_bq_freezerhd",
+        "target_path":  "vendor/bq/freezerhd",
+        "revision":     "lineage-15.1"
+    }
+]
