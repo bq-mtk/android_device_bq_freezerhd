@@ -193,16 +193,8 @@ vendor/lib64/egl/libGLES_mali.so
 vendor/lib64/libOpenCL.so
 
 # Keymaster
-vendor/bin/hw/android.hardware.keymaster@3.0-service
-vendor/bin/hw/vendor.mediatek.hardware.keymaster_attestation@1.0-service
-vendor/etc/init/android.hardware.keymaster@3.0-service.rc
-vendor/etc/init/vendor.mediatek.hardware.keymaster_attestation@1.0-service.rc
-vendor/lib/hw/android.hardware.keymaster@3.0-impl.so
 vendor/lib/hw/keystore.mt8163.so
-vendor/lib/hw/vendor.mediatek.hardware.keymaster_attestation@1.0-impl.so
-vendor/lib64/hw/android.hardware.keymaster@3.0-impl.so
 vendor/lib64/hw/keystore.mt8163.so
-vendor/lib64/hw/vendor.mediatek.hardware.keymaster_attestation@1.0-impl.so
 vendor/lib64/libkeystore-engine-wifi-hidl.so
 vendor/lib64/libkeystore-wifi-hidl.so
 
