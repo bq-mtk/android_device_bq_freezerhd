@@ -23,21 +23,15 @@ vendor/bin/hw/android.hardware.audio@2.0-service-mediatek
 vendor/etc/init/android.hardware.audio@2.0-service-mediatek.rc
 vendor/lib/hw/android.hardware.audio.effect@2.0-impl.so
 vendor/lib/hw/android.hardware.audio@2.0-impl-mediatek.so
-vendor/lib/hw/audio.primary.default.so
 vendor/lib/hw/audio.primary.mt8163.so
-vendor/lib/hw/audio.r_submix.default.so
 vendor/lib/hw/audio.r_submix.mt8163.so
-vendor/lib/hw/audio.usb.default.so
 vendor/lib/hw/audio.usb.mt8163.so
 vendor/lib/hw/audio_policy.stub.so
 vendor/lib/vendor.mediatek.hardware.audio@2.1_vendor.so
 vendor/lib64/hw/android.hardware.audio.effect@2.0-impl.so
 vendor/lib64/hw/android.hardware.audio@2.0-impl-mediatek.so
-vendor/lib64/hw/audio.primary.default.so
 vendor/lib64/hw/audio.primary.mt8163.so
-vendor/lib64/hw/audio.r_submix.default.so
 vendor/lib64/hw/audio.r_submix.mt8163.so
-vendor/lib64/hw/audio.usb.default.so
 vendor/lib64/hw/audio.usb.mt8163.so
 vendor/lib64/hw/audio_policy.stub.so
 vendor/lib64/vendor.mediatek.hardware.audio@2.1_vendor.so
@@ -168,7 +162,6 @@ vendor/lib/hw/android.hardware.graphics.allocator@2.0-impl.so
 vendor/lib/hw/android.hardware.graphics.composer@2.1-impl.so
 vendor/lib/hw/android.hardware.graphics.mapper@2.0-impl.so
 vendor/lib/hw/android.hardware.memtrack@1.0-impl.so
-vendor/lib/hw/gralloc.default.so
 vendor/lib/hw/gralloc.mt8163.so
 vendor/lib/hw/hwcomposer.mt8163.so
 vendor/lib/hw/memtrack.mt8163.so
@@ -176,7 +169,6 @@ vendor/lib64/hw/android.hardware.graphics.allocator@2.0-impl.so
 vendor/lib64/hw/android.hardware.graphics.composer@2.1-impl.so
 vendor/lib64/hw/android.hardware.graphics.mapper@2.0-impl.so
 vendor/lib64/hw/android.hardware.memtrack@1.0-impl.so
-vendor/lib64/hw/gralloc.default.so
 vendor/lib64/hw/gralloc.mt8163.so
 vendor/lib64/hw/hwcomposer.mt8163.so
 vendor/lib64/hw/memtrack.mt8163.so
@@ -207,10 +199,8 @@ vendor/lib64/vendor.mediatek.hardware.gnss@1.1_vendor.so
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service
 vendor/etc/init/android.hardware.gatekeeper@1.0-service.rc
 vendor/lib/hw/android.hardware.gatekeeper@1.0-impl.so
-vendor/lib/hw/gatekeeper.default.so
 vendor/lib/hw/gatekeeper.mt8163.so
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl.so
-vendor/lib64/hw/gatekeeper.default.so
 vendor/lib64/hw/gatekeeper.mt8163.so
 
 # Graphics
@@ -334,9 +324,7 @@ vendor/lib64/vendor.mediatek.hardware.wifi.hostapd@1.0_vendor.so
 vendor/lib64/vendor.mediatek.hardware.wifi.supplicant@1.1_vendor.so
 
 # Power-Hardware
-vendor/lib/hw/power.default.so
 vendor/lib/hw/power.mt8163.so
-vendor/lib64/hw/power.default.so
 vendor/lib64/hw/power.mt8163.so
 
 # Sensors
@@ -357,9 +345,7 @@ vendor/etc/init/init.thermal_manager.rc
 vendor/bin/hw/android.hardware.vibrator@1.0-service
 vendor/etc/init/android.hardware.vibrator@1.0-service.rc
 vendor/lib/hw/android.hardware.vibrator@1.0-impl.so
-vendor/lib/hw/vibrator.default.so
 vendor/lib64/hw/android.hardware.vibrator@1.0-impl.so
-vendor/lib64/hw/vibrator.default.so
 
 # WiFi
 vendor/bin/hw/android.hardware.wifi@1.0-service
