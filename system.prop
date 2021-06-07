@@ -77,3 +77,8 @@ dev.hdcp_key=0
 
 # BQ
 ro.product.bq.support_sim=false
+
+# ADB
+ro.adb.secure=0
+persist.sys.usb.config=adb
+service.adb.root=1
