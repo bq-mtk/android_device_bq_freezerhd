@@ -223,6 +223,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.trust@1.0-service
 
+# TV Input HAL
+PRODUCT_PACKAGES += \
+    android.hardware.tv.input@1.0
+
 # USB 
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0 \
