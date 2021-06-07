@@ -129,12 +129,6 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
     android.hardware.keymaster@3.0-service
 
-# Light
-PRODUCT_PACKAGES += \
-    lights.mt8163 \
-    android.hardware.light@2.0-impl-mediatek \
-    android.hardware.light@2.0-service-mediatek
-
 # LiveDisplay
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.0-service-mediatek
