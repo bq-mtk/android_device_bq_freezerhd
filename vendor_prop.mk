@@ -49,7 +49,6 @@ PRODUCT_PROPERTY_OVERRIDES +=  \
     ro.com.google.gmsversion=8.1_201812 \
     ro.com.google.clientidbase=android-bq \
     ro.config.alarm_alert=Alarm_Classic.ogg \
-    ro.config.low_ram=true \
     ro.config.notification_sound=pixiedust.ogg \
     ro.control_privapp_permissions=log \
     ro.email_support_ucs2=0 \
