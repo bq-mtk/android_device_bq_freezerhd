@@ -24,10 +24,10 @@
  <Param name="MTK_AUDIO_BT_NREC_WO_ENH_MODE" value="" />
  <Param name="MTK_AUDIO_TUNING_TOOL_V2_PHASE" value="" />
  <Param name="MATV_AUDIO_SUPPORT" value="" />
- <Param name="MTK_FM_SUPPORT" value="no" />
+ <Param name="MTK_FM_SUPPORT" value="yes" />
  <Param name="MTK_HEADSET_ACTIVE_NOISE_CANCELLATION" value="no" />
  <Param name="MTK_SUPPORT_TC1_TUNNING" value="no" />
- <Param name="MTK_AUDIO_SPEAKER_PATH" value="int_spk_amp" />
+ <Param name="MTK_AUDIO_SPEAKER_PATH" value="int_hp_buf" />
  <Param name="MTK_AUDIO_NUMBER_OF_MIC" value="1" />
  <Param name="MTK_PLATFORM" value="MT8163" />
  <Param name="MTK_AURISYS_FRAMEWORK_SUPPORT" value="no" />
