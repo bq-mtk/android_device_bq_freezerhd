@@ -2,33 +2,22 @@
 # system.prop for Aquaris M10 HD
 #
 
+# RIL
 rild.libpath=mtk-ril.so
 rild.libargs=-d /dev/ttyC0
 
-
-# MTK, Infinity, 20090720 {
+# Wi-Fi
 wifi.interface=wlan0
-# MTK, Infinity, 20090720 }
-
-# MTK, mtk03034, 20101210 {
 ro.mediatek.wlan.wsc=1
-# MTK, mtk03034 20101210}
-# MTK, mtk03034, 20110318 {
 ro.mediatek.wlan.p2p=1
-# MTK, mtk03034 20110318}
-
-# MTK, mtk03034, 20101213 {
 mediatek.wlan.ctia=0
-# MTK, mtk03034 20101213}
-
-
-#
 wifi.tethering.interface=ap0
-#
+wifi.direct.interface=p2p0
 
+# OpenGL
 ro.opengles.version=196609
 
-wifi.direct.interface=p2p0
+# Dalvik
 dalvik.vm.heapgrowthlimit=128m
 dalvik.vm.heapsize=256m
 
@@ -38,6 +27,7 @@ ro.sys.usb.mtp.whql.enable=0
 # Power off opt in IPO
 sys.ipo.pwrdncap=2
 
+# MTP
 ro.sys.usb.storage.type=mtp
 
 # USB BICR function
@@ -46,43 +36,44 @@ ro.sys.usb.bicr=no
 # USB Charge only function
 ro.sys.usb.charging.only=yes
 
-# audio
+# Audio
 ro.camera.sound.forced=0
 ro.audio.silent=0
 
+# Zygote
 ro.zygote.preload.enable=0
 
-# temporary enables NAV bar (soft keys)
+# NAV bar
 qemu.hw.mainkeys=0
 
+# Kernel
 ro.kernel.zio=38,108,105,16
-#ro.kernel.qemu=1
-#ro.kernel.qemu.gles=0
+
+# SELinux
 ro.boot.selinux=disable
 
 # Disable dirty region for Mali
 debug.hwui.render_dirty_regions=false
 
+# LCD
 ro.hwc.disable_rotate_for_lcm=1
 ro.sf.lcd_density=160
 
-# disable ipo for development
+# Disable ipo for development
 sys.ipo.disable=1
 
+# ALPS Box
 ro.mtk_alps_box_support=1
 
-#for mali
-#ro.hardware.gralloc=mt8163.mali
-
+# Device
 ro.product.device_group=bq_aquaris_m10
 
-#add slide release config,xmzxf.20180713
+# Slide
 ro.product.slide_config=8.0
-#End,xmzxf,20180713
-#for factory hdcpkey ,xmqrp,20180913
+
+# HDCP Key
 persist.service.hdcpkey.enable=0
 dev.hdcp_key=0
-#end
 
+# BQ
 ro.product.bq.support_sim=false
-
