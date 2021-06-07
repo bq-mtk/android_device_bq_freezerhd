@@ -8,6 +8,8 @@ vendor/lib/libaudiosetting.so
 vendor/lib/libaudiotoolkit_vendor.so
 vendor/lib/libtinycompress.so
 vendor/lib/soundfx/libaudiopreprocessing.so
+vendor/lib64/libaptX_encoder.so|a407a92a6eb467886c3970629ebcab4db95b7600
+vendor/lib64/libaptXHD_encoder.so|76eb03998f9b4f98029a4408076685892726e45as
 vendor/lib64/libaudiocompensationfilter_vendor.so
 vendor/lib64/libaudiocomponentengine_vendor.so
 vendor/lib64/libaudiocustparam_vendor.so
