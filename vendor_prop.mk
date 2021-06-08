@@ -130,7 +130,8 @@ PRODUCT_PROPERTY_OVERRIDES +=  \
     ro.mtk_hdmi_hdcp_support=1 \
     ro.hwc.disable_rotate_for_lcm=1 \
     ro.has_gota=false \
-    persist.sys.display.clearMotion=1
+    persist.sys.display.clearMotion=1 \
+    ro.wlan.gen=gen2
 
 # Force Lock Screen Rotation
 PRODUCT_PROPERTY_OVERRIDES += \
