@@ -44,6 +44,15 @@ TARGET_KERNEL_CONFIG := lineageos_freezerhd_defconfig
 TARGET_KERNEL_SOURCE := kernel/bq/freezerhd
 endif
 
+vendor_lkm_dir := vendor/bq/freezerhd/proprietary/vendor/lib/modules
+BOARD_VENDOR_KERNEL_MODULES := \
+    $(vendor_lkm_dir)/bt_drv.ko \
+    $(vendor_lkm_dir)/fmradio_drv.ko \
+    $(vendor_lkm_dir)/gps_drv.ko \
+    $(vendor_lkm_dir)/wlan_drv_gen2.ko \
+    $(vendor_lkm_dir)/wmt_chrdev_wifi.ko \
+    $(vendor_lkm_dir)/wmt_drv.ko
+
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_CMDLINE := "bootopt=64S3,32N2,64N2 buildvariant=userdebug androidboot.selinux=permissive"
 BOARD_MKBOOTIMG_ARGS := --pagesize 2048 --base 0x40078000 --kernel_offset 0x00008000 --ramdisk_offset 0x14f88000 --second_offset 0x00e88000 --tags_offset 0x13f88000 --cmdline $(BOARD_KERNEL_CMDLINE)
