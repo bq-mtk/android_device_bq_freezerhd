@@ -10,5 +10,11 @@
         "repository":   "bq-mtk/android_vendor_bq_freezerhd",
         "target_path":  "vendor/bq/freezerhd",
         "revision":     "lineage-15.1"
+    },
+    {
+        "remote":       "github",
+        "repository":   "jmpfbmx/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-gnu-6.3.1",
+        "target_path":  "prebuilts/gcc/linux-x86/aarch64/aarch64-linux-gnu-6.3.1",
+        "revision":     "gcc-linaro-6.3.1-2017.02-x86-64-aarch64-linux-gnu"
     }
 ]
