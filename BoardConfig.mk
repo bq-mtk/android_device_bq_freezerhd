@@ -33,7 +33,7 @@ TARGET_USES_64_BIT_BINDER := true
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(shell pwd)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-gnu-6.3.1/bin/aarch64-linux-gnu-
-TARGET_KERNEL_CONFIG := lineageos_freezerhd_defconfig
+TARGET_KERNEL_CONFIG := lineage_freezerhd_defconfig
 TARGET_KERNEL_SOURCE := kernel/bq/freezerhd
 
 vendor_lkm_dir := vendor/bq/freezerhd/proprietary/vendor/lib/modules
