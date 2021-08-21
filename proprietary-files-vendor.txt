@@ -29,14 +29,20 @@ vendor/lib/hw/audio.primary.mt8163.so
 vendor/lib/hw/audio.r_submix.mt8163.so
 vendor/lib/hw/audio.usb.mt8163.so
 vendor/lib/hw/audio_policy.stub.so
-vendor/lib/vendor.mediatek.hardware.audio@2.1_vendor.so
+vendor/lib/android.hardware.audio@2.0-v27.so|69c06b42017ab763d616704cde0653b3930fcd3e
+vendor/lib/android.hardware.audio.common@2.0-v27.so|d743a1042882f4fed2a2fddcc15b23717fc7213a
+vendor/lib/android.hardware.audio.common@2.0-util-v27.so|7b16c4b71f75e1d29a92b9f582f99490914708d0
+vendor/lib/vendor.mediatek.hardware.audio@2.1_vendor.so|aeb968e36e8b1900d896c4418190ddb9bf076e39
 vendor/lib64/hw/android.hardware.audio.effect@2.0-impl.so
 vendor/lib64/hw/android.hardware.audio@2.0-impl-mediatek.so
 vendor/lib64/hw/audio.primary.mt8163.so
 vendor/lib64/hw/audio.r_submix.mt8163.so
 vendor/lib64/hw/audio.usb.mt8163.so
 vendor/lib64/hw/audio_policy.stub.so
-vendor/lib64/vendor.mediatek.hardware.audio@2.1_vendor.so
+vendor/lib64/android.hardware.audio@2.0-v27.so|7cfe93972cf0f8a5ba5aa6bf99fc2774055d1522
+vendor/lib64/android.hardware.audio.common@2.0-v27.so|9d60db49863f8c79ea3901b49e9cadbfa780c9f8
+vendor/lib64/android.hardware.audio.common@2.0-util-v27.so|1f06bdb5a9b266c252d967498c9889a9df09d80e
+vendor/lib64/vendor.mediatek.hardware.audio@2.1_vendor.so|cfe13314292fd9e4508a0034e115fdaa4e7e5a17
 
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-mediatek
