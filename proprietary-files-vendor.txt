@@ -296,10 +296,6 @@ vendor/lib/modules/wlan_drv_gen2.ko
 vendor/lib/modules/wmt_chrdev_wifi.ko
 vendor/lib/modules/wmt_drv.ko
 
-# Power-Hardware
-vendor/lib/hw/power.mt8163.so
-vendor/lib64/hw/power.mt8163.so
-
 # Sensors
 vendor/lib/hw/sensors.mt8163.so
 vendor/lib/libsensorndkbridge.so
