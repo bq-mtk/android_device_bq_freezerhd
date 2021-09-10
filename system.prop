@@ -82,3 +82,6 @@ ro.product.bq.support_sim=false
 ro.adb.secure=0
 persist.sys.usb.config=adb
 service.adb.root=1
+
+# OTA
+lineage.updater.uri=https://raw.githubusercontent.com/bq-mtk/ota_releases/lineage-15.1/lineage_freezerhd.json
