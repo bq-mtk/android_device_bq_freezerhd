@@ -33,6 +33,32 @@
 #define POWER_HINT_PERFORMANCE_BOOST 0x00000102
 #define POWER_HINT_BALANCE  0x00000103
 
+int sysfs_write(const char *path, char *s)
+{
+    char buf[80];
+    int len;
+    int ret = 0;
+    int fd = open(path, O_WRONLY);
+
+    if (fd < 0) {
+        strerror_r(errno, buf, sizeof(buf));
+        ALOGE("Error opening %s: %s\n", path, buf);
+        return -1 ;
+    }
+
+    len = write(fd, s, strlen(s));
+    if (len < 0) {
+        strerror_r(errno, buf, sizeof(buf));
+        ALOGE("Error writing to %s: %s\n", path, buf);
+
+        ret = -1;
+    }
+
+    close(fd);
+
+    return ret;
+}
+
 static void power_init(struct power_module *module)
 {
 }
@@ -90,6 +116,19 @@ static void power_hint(struct power_module *module, power_hint_t hint,
     }
 }
 
+static void set_feature(struct power_module *module, feature_t feature, int state)
+{
+    switch (feature) {
+#ifdef TAP_TO_WAKE_NODE
+        case POWER_FEATURE_DOUBLE_TAP_TO_WAKE:
+            sysfs_write(TAP_TO_WAKE_NODE, state ? "1" : "0");
+            break;
+#endif
+        default:
+            break;
+    }
+}
+
 static struct hw_module_methods_t power_module_methods = {
     .open = NULL,
 };
@@ -108,4 +147,5 @@ struct power_module HAL_MODULE_INFO_SYM = {
     .init = power_init,
     .setInteractive = power_set_interactive,
     .powerHint = power_hint,
+    .setFeature = set_feature,
 };
