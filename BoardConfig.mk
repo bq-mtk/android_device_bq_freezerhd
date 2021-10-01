@@ -47,6 +47,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun0/file
 
 # Recovery
+LZMA_RAMDISK_TARGETS := recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
@@ -60,7 +61,6 @@ TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXCLUDE_ENCRYPTED_BACKUPS := true
-TW_EXCLUDE_NANO := true
 TW_NO_EXFAT := true
 TW_NO_HAPTICS := true
 TW_USE_TOOLBOX := true
@@ -68,3 +68,4 @@ TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 120
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone1/temp"
+TW_EXCLUDE_TWRPAPP := true
