@@ -1,13 +1,11 @@
 # change key_provisioning
-service kisd /sbin/kisd
+service kisd /vendor/bin/kisd
     user root
     group system drmrpc
-    seclabel u:r:recovery:s0
-    disabled
 
 on post-fs-data
-    mkdir /data/vendor/key_provisioning
-    chmod 0770 /data/vendor/key_provisioning
-    chown system system /data/vendor/key_provisioning
+    mkdir /data/key_provisioning
+    chmod 0770 /data/key_provisioning
+    chown system system /data/key_provisioning
 
     start kisd

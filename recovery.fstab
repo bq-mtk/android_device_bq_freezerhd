@@ -1,13 +1,13 @@
-/data           ext4    /dev/block/platform/bootdevice/by-name/userdata          flags=forceencrypt=/dev/block/platform/bootdevice/by-name/metadata
-/cache          ext4    /dev/block/platform/bootdevice/by-name/cache             flags=backup=1;wipeingui;wipeduringfactoryreset
-/boot           emmc    /dev/block/platform/bootdevice/by-name/boot              flags=display="Boot";backup=1;flashimg=1
-/recovery       emmc    /dev/block/platform/bootdevice/by-name/recovery          flags=display="Recovery";backup=1;flashimg=1
-/dtbo           emmc    /dev/block/platform/bootdevice/by-name/dtbo              flags=display="DTBO";backup=1;flashimg=1
+/data           ext4    /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/userdata          flags=forceencrypt=/dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/metadata
+/cache          ext4    /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/cache             flags=backup=1;wipeingui;wipeduringfactoryreset
+/boot           emmc    /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/boot              flags=display="Boot";backup=1;flashimg=1
+/recovery       emmc    /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/recovery          flags=display="Recovery";backup=1;flashimg=1
+/odmdtbo        emmc    /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/odmdtbo           flags=display="ODMDTBO";backup=1;flashimg=1
 
-/system_root    ext4    /dev/block/platform/bootdevice/by-name/system            flags=display="System";backup=1;wipeingui
-/system_image   emmc    /dev/block/platform/bootdevice/by-name/system            flags=display="System Image";backup=1flashimg=1
-/vendor         ext4    /dev/block/platform/bootdevice/by-name/vendor            flags=display="Vendor";backup=1;wipeingui
-/vendor_image   emmc    /dev/block/platform/bootdevice/by-name/vendor            flags=display="Vendor Image";backup=1;flashimg=1
+/system         ext4    /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/system            flags=display="System";backup=1;wipeingui
+/system_image   emmc    /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/system            flags=display="System Image";backup=1flashimg=1
+/vendor         ext4    /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/vendor            flags=display="Vendor";backup=1;wipeingui
+/vendor_image   emmc    /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/vendor            flags=display="Vendor Image";backup=1;flashimg=1
 
 /external_sd    auto    /dev/block/mmcblk1p1            /dev/block/mmcblk1       flags=display="External SDcard";storage;wipeingui;removable;backup=0
 /usbotg         auto    /dev/block/sda1                 /dev/block/sda           flags=display="Usb-Otg";storage;removable;backup=0

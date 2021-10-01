@@ -1,1 +1,1 @@
-add_lunch_combo omni_k1002-eng
+add_lunch_combo omni_freezerhd-eng
