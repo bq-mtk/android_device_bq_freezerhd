@@ -352,7 +352,6 @@ vendor/bin/wmt_concurrency
 vendor/bin/wmt_launcher
 vendor/bin/wmt_loader
 vendor/bin/wmt_loopback
-vendor/compatibility_matrix.xml
 vendor/data/misc/ProjectConfig.mk
 vendor/etc/.tp/.ht120.mtc
 vendor/etc/aee-config
