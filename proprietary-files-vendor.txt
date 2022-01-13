@@ -212,8 +212,6 @@ vendor/etc/init/vendor.mediatek.hardware.keymanage@1.0-service.rc
 vendor/etc/init/vendor.mediatek.hardware.mtkcodecservice@1.1-service.rc
 vendor/etc/init/vendor.mediatek.hardware.power@1.1-service.rc
 vendor/etc/init/vendor.mediatek.hardware.pq@2.0-service.rc
-vendor/etc/media_codecs_mediatek_audio.xml
-vendor/etc/media_codecs_mediatek_video.xml
 vendor/etc/permissions/com.mediatek.tedongle.xml
 vendor/lib/hw/android.hardware.sensors@1.0-impl-mediatek.so
 vendor/lib/hw/vendor.mediatek.hardware.keymanage@1.0-impl.so
@@ -395,7 +393,6 @@ vendor/etc/init/rpmb_svc.rc
 vendor/etc/init/wifi2agps.rc
 vendor/etc/mtk_omx_core.cfg
 vendor/etc/partition_permission.sh
-vendor/etc/permissions/media_codecs.xml
 vendor/etc/permissions/pms_sysapp_removable_vendor_list.txt
 vendor/etc/powerscntbl.cfg
 vendor/etc/power_whitelist_cfg.xml
