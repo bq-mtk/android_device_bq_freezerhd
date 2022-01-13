@@ -160,7 +160,7 @@ Only the three quirks included above are recognized at this point:
             <Limit name="measured-frame-rate-320x240" range="300-600" />
             <Limit name="measured-frame-rate-720x480" range="200-300" />
             <Limit name="measured-frame-rate-1280x720" range="50-100" />
-            <Limit name="measured-frame-rate-1920x1080" range="10-20" />
+            <Limit name="measured-frame-rate-1920x1080" range="30-50" />
         </MediaCodec>
         <MediaCodec name="OMX.google.vp8.decoder" type="video/x-vnd.on2.vp8" update="true">
             <Limit name="measured-frame-rate-320x240" range="300-800" />
