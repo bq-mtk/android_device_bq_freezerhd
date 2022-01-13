@@ -94,7 +94,7 @@ Only the three quirks included above are recognized at this point:
         <MediaCodec name="OMX.MTK.VIDEO.ENCODER.HEVC" type="video/hevc" update="true">
             <Limit name="measured-frame-rate-320x240" range="50-500" />
             <Limit name="measured-frame-rate-720x480" range="50-200" />
-            <Limit name="measured-frame-rate-1280x720" range="10-20" />
+            <Limit name="measured-frame-rate-1280x720" range="10-100" />
         </MediaCodec>
         <!-- Google codec -->
         <MediaCodec name="OMX.google.mpeg4.encoder" type="video/mp4v-es" update="true">
