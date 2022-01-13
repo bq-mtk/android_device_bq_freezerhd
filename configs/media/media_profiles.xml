@@ -88,9 +88,9 @@
         </EncoderProfile>
         <EncoderProfile quality="high" fileFormat="3gp" duration="30">
             <Video codec="h264"
-                   bitRate="9000000"
-                   width="1280"
-                   height="720"
+                   bitRate="17000000"
+                   width="1920"
+                   height="1080"
                    frameRate="30" />
             <Audio codec="aac"
                    bitRate="128000"
@@ -146,6 +146,17 @@
                    bitRate="9000000"
                    width="1280"
                    height="720"
+                   frameRate="30" />
+            <Audio codec="aac"
+                   bitRate="128000"
+                   sampleRate="48000"
+                   channels="2" />
+        </EncoderProfile>
+        <EncoderProfile quality="1080p" fileFormat="3gp" duration="30">
+            <Video codec="h264"
+                   bitRate="17000000"
+                   width="1920"
+                   height="1080"
                    frameRate="30" />
             <Audio codec="aac"
                    bitRate="128000"
@@ -240,7 +251,7 @@
                    sampleRate="48000"
                    channels="2" />
         </EncoderProfile>
-		<!--  for cts pass
+		<!--
         <EncoderProfile quality="highspeed480p" fileFormat="3gp" duration="30">
             <Video codec="h264"
                    bitRate="12000000"
@@ -416,8 +427,8 @@
     -->
     <VideoEncoderCap name="h264" enabled="true"
         minBitRate="64000" maxBitRate="40000000"
-        minFrameWidth="176" maxFrameWidth="1280"
-        minFrameHeight="144" maxFrameHeight="720"
+        minFrameWidth="176" maxFrameWidth="1920"
+        minFrameHeight="144" maxFrameHeight="1080"
         minFrameRate="15" maxFrameRate="30" />
     <VideoEncoderCap name="h263" enabled="true"
         minBitRate="64000" maxBitRate="2000000"
@@ -457,5 +468,4 @@
         not perform any checks at all.
     -->
     <VideoDecoderCap name="wmv" enabled="true"/>
-    <AudioDecoderCap name="wma" enabled="false"/>
 </MediaSettings>
