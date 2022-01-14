@@ -2,6 +2,7 @@ PRODUCT_PROPERTY_OVERRIDES +=  \
     RO_PRODUCT_FIRST_API_LEVEL \
     RO_VENDOR_VNDK_VERSION \
     bt.profiles.avrcp.multiPlayer.enable=0 \
+    camera.disable_zsl_mode=1 \
     dalvik.vm.foreground-heap-growth-multiplier=2.0 \
     dalvik.vm.heapgrowthlimit=128m \
     dalvik.vm.heapsize=256m \
