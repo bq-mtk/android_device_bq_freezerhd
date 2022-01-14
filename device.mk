@@ -98,7 +98,8 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    libcurl
+    libcurl \
+    libstdc++.vendor
 
 # Graphics
 PRODUCT_PACKAGES += \
