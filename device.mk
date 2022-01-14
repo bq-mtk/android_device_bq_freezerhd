@@ -197,6 +197,10 @@ PRODUCT_PACKAGES +=\
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
+# Radio
+PRODUCT_PACKAGES+= \
+    android.hardware.radio@1.0
+
 # Rootdir
 PRODUCT_PACKAGES += \
     init.connectivity.rc \
