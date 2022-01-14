@@ -296,9 +296,7 @@ vendor/lib/modules/wmt_drv.ko
 
 # Sensors
 vendor/lib/hw/sensors.mt8163.so
-vendor/lib/libsensorndkbridge.so
 vendor/lib64/hw/sensors.mt8163.so
-vendor/lib64/libsensorndkbridge.so
 
 # Thermal
 vendor/bin/thermal
