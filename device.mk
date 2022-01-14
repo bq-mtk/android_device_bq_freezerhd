@@ -193,13 +193,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES +=\
     power.mt8163
 
+# Radio
+PRODUCT_PACKAGES+= \
+    android.hardware.radio@1.0 \
+    android.hardware.radio@1.1
+
 # RenderScript HAL
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
-
-# Radio
-PRODUCT_PACKAGES+= \
-    android.hardware.radio@1.0
 
 # Rootdir
 PRODUCT_PACKAGES += \
