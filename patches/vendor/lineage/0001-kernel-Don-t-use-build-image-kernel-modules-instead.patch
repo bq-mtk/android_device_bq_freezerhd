@@ -1,0 +1,72 @@
+From ecdfc5ce11e1b0886be576b5cfd6ac9720e608d5 Mon Sep 17 00:00:00 2001
+From: jmpfbmx <jmpf.bmx@gmail.com>
+Date: Tue, 17 Aug 2021 12:16:55 +0200
+Subject: [PATCH] kernel: Don't use build-image-kernel-modules instead of
+ copying it
+
+This revert commit 9985f596b39f52b4cd931897524da8dfbaae17e3
+
+Signed-off-by: jmpfbmx <jmpf.bmx@gmail.com>
+Change-Id: If0a72759952f8b288c97bfd7430405cd97fdafad
+---
+ build/tasks/kernel.mk | 29 ++++++++++++++++++++---------
+ 1 file changed, 20 insertions(+), 9 deletions(-)
+
+diff --git a/build/tasks/kernel.mk b/build/tasks/kernel.mk
+index e5e59604..bf3e6dd3 100644
+--- a/build/tasks/kernel.mk
++++ b/build/tasks/kernel.mk
+@@ -147,15 +147,18 @@ endif
+ ifeq ($(FULL_KERNEL_BUILD),true)
+
+ ifeq ($(NEED_KERNEL_MODULE_ROOT),true)
+-KERNEL_MODULES_OUT := $(TARGET_ROOT_OUT)
++KERNEL_MODULES_INSTALL := root
++KERNEL_MODULES_OUT := $(TARGET_OUT)/lib/modules
+ KERNEL_DEPMOD_STAGING_DIR := $(call intermediates-dir-for,PACKAGING,depmod_recovery)
+ KERNEL_MODULE_MOUNTPOINT :=
+ else ifeq ($(NEED_KERNEL_MODULE_SYSTEM),true)
+-KERNEL_MODULES_OUT := $(TARGET_OUT)
++KERNEL_MODULES_INSTALL := $(TARGET_COPY_OUT_SYSTEM)
++KERNEL_MODULES_OUT := $(TARGET_OUT)/lib/modules
+ KERNEL_DEPMOD_STAGING_DIR := $(call intermediates-dir-for,PACKAGING,depmod_system)
+ KERNEL_MODULE_MOUNTPOINT := system
+ else
+-KERNEL_MODULES_OUT := $(TARGET_OUT_VENDOR)
++KERNEL_MODULES_INSTALL := $(TARGET_COPY_OUT_VENDOR)
++KERNEL_MODULES_OUT := $(TARGET_OUT_VENDOR)/lib/modules
+ KERNEL_DEPMOD_STAGING_DIR := $(call intermediates-dir-for,PACKAGING,depmod_vendor)
+ KERNEL_MODULE_MOUNTPOINT := vendor
+ endif
+@@ -244,15 +247,23 @@ TARGET_KERNEL_BINARIES: $(KERNEL_CONFIG)
+
+ .PHONY: INSTALLED_KERNEL_MODULES
+ INSTALLED_KERNEL_MODULES: depmod-host
++	$(hide) rm -rf $(KERNEL_MODULES_OUT)
++	$(hide) mkdir -p $(KERNEL_MODULES_OUT)
++	$(hide) rm -rf $(KERNEL_DEPMOD_STAGING_DIR)
+ 	$(hide) if grep -q '=m' $(KERNEL_CONFIG); then \
+ 			echo "Installing Kernel Modules"; \
+-			$(call make-kernel-target,INSTALL_MOD_PATH=$(MODULES_INTERMEDIATES) modules_install); \
+-			kernel_release=$$(cat $(KERNEL_RELEASE)) \
+-			modules=$$(find $(MODULES_INTERMEDIATES)/lib/modules/$$kernel_release -type f -name '*.ko'); \
+-			for f in $$modules; do \
++			$(call make-kernel-target,INSTALL_MOD_PATH=../../$(KERNEL_MODULES_INSTALL) modules_install) && \
++			mofile=$$(find $(KERNEL_MODULES_OUT) -type f -name modules.order) && \
++			mpath=$$(dirname $$mofile) && \
++			for f in $$(find $$mpath/kernel -type f -name '*.ko'); do \
+ 				$(KERNEL_TOOLCHAIN_PATH)strip --strip-unneeded $$f; \
+-			done; \
+-			($(call build-image-kernel-modules,$$modules,$(KERNEL_MODULES_OUT),$(KERNEL_MODULE_MOUNTPOINT)/,$(KERNEL_DEPMOD_STAGING_DIR))); \
++				mv $$f $(KERNEL_MODULES_OUT); \
++			done && \
++			rm -rf $$mpath && \
++			mkdir -p $(KERNEL_DEPMOD_STAGING_DIR)/lib/modules/0.0/$(KERNEL_MODULE_MOUNTPOINT)/lib/modules && \
++			find $(KERNEL_MODULES_OUT) -name *.ko -exec cp {} $(KERNEL_DEPMOD_STAGING_DIR)/lib/modules/0.0/$(KERNEL_MODULE_MOUNTPOINT)/lib/modules \; && \
++			$(DEPMOD) -b $(KERNEL_DEPMOD_STAGING_DIR) 0.0 && \
++			sed -e 's/\(.*modules.*\):/\/\1:/g' -e 's/ \([^ ]*modules[^ ]*\)/ \/\1/g' $(KERNEL_DEPMOD_STAGING_DIR)/lib/modules/0.0/modules.dep > $(KERNEL_MODULES_OUT)/modules.dep; \
+ 		fi
+
+ $(TARGET_KERNEL_MODULES): TARGET_KERNEL_BINARIES
+-- 
+2.17.1
