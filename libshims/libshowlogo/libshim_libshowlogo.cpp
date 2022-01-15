@@ -43,3 +43,5 @@ extern "C" void _ZN7android21SurfaceComposerClient13createSurfaceERKNS_7String8E
 extern "C" void _ZN7android21SurfaceComposerClient21openGlobalTransactionEv() {
         t = new(android::SurfaceComposerClient::Transaction);
 }
+
+extern "C" void _ZN7android14SurfaceControl8setLayerEi(int32_t layer){}
