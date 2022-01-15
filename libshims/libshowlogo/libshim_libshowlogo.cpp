@@ -34,3 +34,5 @@ extern "C" void _ZN7android21SurfaceComposerClient20setDisplayProjectionERKNS_2s
   t.setDisplayProjection(token, orientation, layerStackRect, displayRect);
   t.apply();
 }
+
+extern "C" void _ZN7android21SurfaceComposerClient13createSurfaceERKNS_7String8EjjijPNS_14SurfaceControlEjj() { }
