@@ -227,7 +227,7 @@ vendor/lib/libmtkcam_fwkutils.so
 vendor/lib/libmtkcam_grallocutils.so
 vendor/lib/libmtkcam_imgbuf.so
 vendor/lib/libmtkcam_metadata.so
-vendor/lib/libmtkcam_stdutils.so
+vendor/lib/libmtkcam_stdutils.so|1299b36d264a61a13d381b9315b9cca375c7c088
 vendor/lib/libmtkjpeg.so
 vendor/lib/libmtklimiter_vendor.so
 vendor/lib/libMtkOmxAdpcmDec.so
@@ -267,7 +267,7 @@ vendor/lib64/libmtkcam_fwkutils.so
 vendor/lib64/libmtkcam_grallocutils.so
 vendor/lib64/libmtkcam_imgbuf.so
 vendor/lib64/libmtkcam_metadata.so
-vendor/lib64/libmtkcam_stdutils.so
+vendor/lib64/libmtkcam_stdutils.so|7ccce85d1abb4a16ebff38406a808fc746f9dbfa
 vendor/lib64/libmtkjpeg.so
 vendor/lib64/libmtklimiter_vendor.so
 vendor/lib64/libMtkOmxCore.so
