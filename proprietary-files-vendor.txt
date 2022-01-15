@@ -178,9 +178,9 @@ vendor/lib64/hw/gatekeeper.mt8163.so
 
 # Graphics
 vendor/lib/egl/egl.cfg
-vendor/lib/egl/libGLES_mali.so
+vendor/lib/egl/libGLES_mali.so|559d91c6882c675a24d9be3893acc1cea750a128
 vendor/lib/libOpenCL.so
-vendor/lib64/egl/libGLES_mali.so
+vendor/lib64/egl/libGLES_mali.so|5df36a24edc0a3eb4057c948b5b3edc6c759fbf7
 vendor/lib64/libOpenCL.so
 
 # Keymaster
@@ -460,7 +460,7 @@ vendor/lib/libimageio_FrmB.so
 vendor/lib/libimageio_plat_drv.so
 vendor/lib/libimageio_plat_drv_FrmB.so
 vendor/lib/libion_mtk.so
-vendor/lib/libion_ulit.so
+vendor/lib/libion_ulit.so|94458871881e6ea2a55af6ae82d7ea7f50fb42c6
 vendor/lib/libispfeaturem.so
 vendor/lib/libjni_subtitle_bitmap.so
 vendor/lib/libJpgDecPipe.so
@@ -556,7 +556,7 @@ vendor/lib64/libimageio_FrmB.so
 vendor/lib64/libimageio_plat_drv.so
 vendor/lib64/libimageio_plat_drv_FrmB.so
 vendor/lib64/libion_mtk.so
-vendor/lib64/libion_ulit.so
+vendor/lib64/libion_ulit.so|d7cd76f905963c04209e2c8266b3fd7e20b29bdf
 vendor/lib64/libispfeaturem.so
 vendor/lib64/libjni_subtitle_bitmap.so
 vendor/lib64/libJpgDecPipe.so
