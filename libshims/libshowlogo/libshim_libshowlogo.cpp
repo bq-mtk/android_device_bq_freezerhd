@@ -45,3 +45,5 @@ extern "C" void _ZN7android21SurfaceComposerClient21openGlobalTransactionEv() {
 }
 
 extern "C" void _ZN7android14SurfaceControl8setLayerEi(int32_t layer){}
+
+extern "C" void _ZN7android21SurfaceComposerClient22closeGlobalTransactionEb() {}
