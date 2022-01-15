@@ -1,6 +1,6 @@
 # Audio
 vendor/lib/libaudiocompensationfilter_vendor.so
-vendor/lib/libaudiocomponentengine_vendor.so
+vendor/lib/libaudiocomponentengine_vendor.so|a76411f362086c05f78c98cb96236f3e1245fcb3
 vendor/lib/libaudiocustparam_vendor.so
 vendor/lib/libaudiodcrflt_vendor.so
 vendor/lib/libaudioprimarydevicehalifclient.so
@@ -11,7 +11,7 @@ vendor/lib/soundfx/libaudiopreprocessing.so
 vendor/lib64/libaptX_encoder.so|a407a92a6eb467886c3970629ebcab4db95b7600
 vendor/lib64/libaptXHD_encoder.so|76eb03998f9b4f98029a4408076685892726e45as
 vendor/lib64/libaudiocompensationfilter_vendor.so
-vendor/lib64/libaudiocomponentengine_vendor.so
+vendor/lib64/libaudiocomponentengine_vendor.so|f5764c6a4176d7937a0bcbf783f2d97a35c25722
 vendor/lib64/libaudiocustparam_vendor.so
 vendor/lib64/libaudiodcrflt_vendor.so
 vendor/lib64/libaudioprimarydevicehalifclient.so
