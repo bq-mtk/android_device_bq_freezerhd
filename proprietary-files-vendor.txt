@@ -63,7 +63,7 @@ vendor/lib64/libbluetooth_relayer.so
 vendor/lib64/libbt-vendor.so
 
 # Camera
-vendor/lib/hw/android.hardware.camera.provider@2.4-impl-mediatek.so
+vendor/lib/hw/android.hardware.camera.provider@2.4-impl-mediatek.so|e6e09740fd0d887f463cc0b31eda20df95ee634e
 vendor/lib/hw/vendor.mediatek.hardware.camera.ccap@1.0-impl.so
 vendor/lib/libcam.camadapter.so
 vendor/lib/libcam.campipe.so
@@ -97,7 +97,7 @@ vendor/lib/libcam_platform.so
 vendor/lib/libcam_utils.so
 vendor/lib/vendor.mediatek.hardware.camera.ccap@1.0_vendor.so
 vendor/lib/vendor.mediatek.hardware.camera.device@1.1_vendor.so
-vendor/lib64/hw/android.hardware.camera.provider@2.4-impl-mediatek.so
+vendor/lib64/hw/android.hardware.camera.provider@2.4-impl-mediatek.so|a638c5892cc6e8324c7ebf00be01b18e6faa5d32
 vendor/lib64/hw/vendor.mediatek.hardware.camera.ccap@1.0-impl.so
 vendor/lib64/libcam.camadapter.so
 vendor/lib64/libcam.campipe.so

@@ -128,6 +128,10 @@ PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
     android.hidl.manager@1.0
 
+PRODUCT_COPY_FILES += \
+    prebuilts/vndk/v27/arm/arch-arm-armv7-a-neon/shared/vndk-sp/libhidltransport.so:$(TARGET_COPY_OUT_VENDOR)/lib/libhidltransport-v27.so \
+    prebuilts/vndk/v27/arm64/arch-arm64-armv8-a/shared/vndk-sp/libhidltransport.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libhidltransport-v27.so
+
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
