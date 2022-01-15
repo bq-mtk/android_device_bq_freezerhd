@@ -321,7 +321,6 @@ vendor/bin/chat
 vendor/bin/dongled
 vendor/bin/gsensorcalid
 vendor/bin/gsm0710muxd
-vendor/bin/hw/android.hardware.broadcastradio@1.1-service
 vendor/bin/hw/power_native_test
 vendor/bin/hw/rilproxy
 vendor/bin/kisd
@@ -365,7 +364,6 @@ vendor/etc/ecc_list_OP17.xml
 vendor/etc/ecc_list_OP18.xml
 vendor/etc/init/aee_aedv.rc
 vendor/etc/init/aee_aedv64.rc
-vendor/etc/init/android.hardware.broadcastradio@1.1-service.rc
 vendor/etc/init/camerahalserver.rc
 vendor/etc/init/gsm0710muxd.rc
 vendor/etc/init/init.bt_drv.rc
