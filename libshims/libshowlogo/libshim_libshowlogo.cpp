@@ -26,6 +26,9 @@ using android::IBinder;
 using android::IGraphicBufferConsumer;
 using android::IGraphicBufferProducer;
 using android::Rect;
+using android::SurfaceComposerClient;
+
+android::SurfaceComposerClient::Transaction *t;
 
 extern "C" void _ZN7android21SurfaceComposerClient20setDisplayProjectionERKNS_2spINS_7IBinderEEEjRKNS_4RectES8_(
     const sp<IBinder>& token, uint32_t orientation, const Rect& layerStackRect,
@@ -36,3 +39,7 @@ extern "C" void _ZN7android21SurfaceComposerClient20setDisplayProjectionERKNS_2s
 }
 
 extern "C" void _ZN7android21SurfaceComposerClient13createSurfaceERKNS_7String8EjjijPNS_14SurfaceControlEjj() { }
+
+extern "C" void _ZN7android21SurfaceComposerClient21openGlobalTransactionEv() {
+        t = new(android::SurfaceComposerClient::Transaction);
+}
