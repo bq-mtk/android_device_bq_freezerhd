@@ -23,6 +23,7 @@
 #define LOG_TAG "PowerHAL"
 #include <utils/Log.h>
 
+#include <cutils/properties.h>
 #include <hardware/hardware.h>
 #include <hardware/power.h>
 
@@ -32,6 +33,23 @@
 #define POWER_HINT_POWER_SAVING 0x00000101
 #define POWER_HINT_PERFORMANCE_BOOST 0x00000102
 #define POWER_HINT_BALANCE  0x00000103
+
+enum {
+    PROFILE_POWER_SAVE = 0,
+    PROFILE_BALANCED,
+    PROFILE_HIGH_PERFORMANCE,
+    PROFILE_BIAS_POWER, 
+};
+
+#define POWER_NR_OF_SUPPORTED_PROFILES 4
+
+#define POWER_PROFILE_PROPERTY  "sys.perf.profile"
+#define POWER_SAVE_PROP         "0"
+#define BALANCED_PROP           "1"
+#define HIGH_PERFORMANCE_PROP   "2"
+#define BIAS_POWER_PROP         "3"
+
+static int current_power_profile = PROFILE_BALANCED;
 
 static void power_init(struct power_module *module)
 {
@@ -105,6 +123,27 @@ static void power_fwrite(const char *path, char *s)
     close(fd);
 }
 
+static void set_power_profile(int profile)
+{
+    if (profile == current_power_profile)
+        return;
+    switch (profile) {
+    case PROFILE_POWER_SAVE:
+        property_set(POWER_PROFILE_PROPERTY, POWER_SAVE_PROP);
+        break;
+    case PROFILE_BALANCED:
+        property_set(POWER_PROFILE_PROPERTY, BALANCED_PROP);
+        break;
+    case PROFILE_HIGH_PERFORMANCE:
+        property_set(POWER_PROFILE_PROPERTY, HIGH_PERFORMANCE_PROP);
+        break;
+    case PROFILE_BIAS_POWER:
+        property_set(POWER_PROFILE_PROPERTY, BIAS_POWER_PROP);
+        break;
+    }
+    current_power_profile = profile;
+}
+
 static void power_hint(struct power_module *module, power_hint_t hint,
                        void *data) {
     int param = 0;
@@ -127,6 +166,7 @@ static void power_hint(struct power_module *module, power_hint_t hint,
         case POWER_HINT_INTERACTION:
         case POWER_HINT_LAUNCH:
         case POWER_HINT_SET_PROFILE:
+             set_power_profile(*(int32_t *)data);
         case POWER_HINT_VIDEO_ENCODE:
         case POWER_HINT_VIDEO_DECODE:
         case POWER_HINT_SUSTAINED_PERFORMANCE:

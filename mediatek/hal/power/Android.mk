@@ -20,7 +20,7 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := power.c
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_RELATIVE_PATH := hw
-LOCAL_SHARED_LIBRARIES := liblog libutils
+LOCAL_SHARED_LIBRARIES := libcutils liblog libutils
 LOCAL_HEADER_LIBRARIES := libhardware_headers
 LOCAL_MODULE := power.$(TARGET_BOARD_PLATFORM)
 
