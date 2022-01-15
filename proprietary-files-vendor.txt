@@ -81,7 +81,7 @@ vendor/lib/libcam3_hwnode.so
 vendor/lib/libcam3_hwpipeline.so
 vendor/lib/libcam3_pipeline.so
 vendor/lib/libcam3_utils.so
-vendor/lib/libcamalgo.so
+vendor/lib/libcamalgo.so|51723b1108026a11de40e8744fd683bcdfb16b63
 vendor/lib/libcamdrv.so
 vendor/lib/libcamdrv_FrmB.so
 vendor/lib/libcameracustom.so
@@ -115,7 +115,7 @@ vendor/lib64/libcam3_hwnode.so
 vendor/lib64/libcam3_hwpipeline.so
 vendor/lib64/libcam3_pipeline.so
 vendor/lib64/libcam3_utils.so
-vendor/lib64/libcamalgo.so
+vendor/lib64/libcamalgo.so|31bd226adc5b7a30c49633edbc252d3e43cb2489
 vendor/lib64/libcamdrv.so
 vendor/lib64/libcamdrv_FrmB.so
 vendor/lib64/libcameracustom.so

@@ -108,7 +108,8 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@2.0-impl \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.composer@2.1-service \
-    libGLES_android
+    libGLES_android \
+    libgui_vendor
 
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.hwui.renderer=opengl \
