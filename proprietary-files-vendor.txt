@@ -25,7 +25,7 @@ vendor/bin/hw/android.hardware.audio@2.0-service-mediatek
 vendor/etc/init/android.hardware.audio@2.0-service-mediatek.rc
 vendor/lib/hw/android.hardware.audio.effect@2.0-impl.so
 vendor/lib/hw/android.hardware.audio@2.0-impl-mediatek.so
-vendor/lib/hw/audio.primary.mt8163.so
+vendor/lib/hw/audio.primary.mt8163.so|e00b55f978f8db760bce3bd6b3a85dc59b42116b
 vendor/lib/hw/audio.r_submix.mt8163.so
 vendor/lib/hw/audio.usb.mt8163.so
 vendor/lib/hw/audio_policy.stub.so
@@ -35,7 +35,7 @@ vendor/lib/android.hardware.audio.common@2.0-util-v27.so|7b16c4b71f75e1d29a92b9f
 vendor/lib/vendor.mediatek.hardware.audio@2.1_vendor.so|aeb968e36e8b1900d896c4418190ddb9bf076e39
 vendor/lib64/hw/android.hardware.audio.effect@2.0-impl.so
 vendor/lib64/hw/android.hardware.audio@2.0-impl-mediatek.so
-vendor/lib64/hw/audio.primary.mt8163.so
+vendor/lib64/hw/audio.primary.mt8163.so|d80e7c674da02608f1766ad31d28033b0bf3be2b
 vendor/lib64/hw/audio.r_submix.mt8163.so
 vendor/lib64/hw/audio.usb.mt8163.so
 vendor/lib64/hw/audio_policy.stub.so
