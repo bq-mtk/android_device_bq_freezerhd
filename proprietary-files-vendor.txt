@@ -326,7 +326,7 @@ vendor/bin/hw/rilproxy
 vendor/bin/kisd
 vendor/bin/lbs_hidl_service
 vendor/bin/md_ctrl
-vendor/bin/mnld
+vendor/bin/mnld|d343e98f99df5e6f71bc685b486d6e09833f69ad
 vendor/bin/mrdump_tool
 vendor/bin/mtkcam-debug
 vendor/bin/mtkrild
