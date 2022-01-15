@@ -225,7 +225,7 @@ vendor/lib/hw/vendor.mediatek.hardware.mtkcodecservice@1.1-impl.so
 vendor/lib/hw/vendor.mediatek.hardware.nvram@1.0-impl.so
 vendor/lib/hw/vendor.mediatek.hardware.power@1.1-impl.so
 vendor/lib/hw/vendor.mediatek.hardware.pq@2.0-impl.so
-vendor/lib/libmtkcam_debugutils.so
+vendor/lib/libmtkcam_debugutils.so|3403fd3509cf870391216234814af5071eb1faf1
 vendor/lib/libmtkcam_device1.so
 vendor/lib/libmtkcam_device3.so
 vendor/lib/libmtkcam_device3_app.so
@@ -265,7 +265,7 @@ vendor/lib64/hw/vendor.mediatek.hardware.mtkcodecservice@1.1-impl.so
 vendor/lib64/hw/vendor.mediatek.hardware.nvram@1.0-impl.so
 vendor/lib64/hw/vendor.mediatek.hardware.power@1.1-impl.so
 vendor/lib64/hw/vendor.mediatek.hardware.pq@2.0-impl.so
-vendor/lib64/libmtkcam_debugutils.so
+vendor/lib64/libmtkcam_debugutils.so|49e61e19322510d2a5ada2f2636fd1a5a69ad2a7
 vendor/lib64/libmtkcam_device1.so
 vendor/lib64/libmtkcam_device3.so
 vendor/lib64/libmtkcam_device3_app.so
