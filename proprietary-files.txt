@@ -20,7 +20,7 @@ lib64/libcustom_jni.so
 # Radio
 bin/atcid
 etc/init/atcid.rc
-lib64/vendor.mediatek.hardware.radio@2.0.so
+lib64/vendor.mediatek.hardware.radio@2.0.so|d2079cf5828a09d8e4719c4c6d346447f504181e
 lib/libfmjni.so
 lib64/libfmjni.so
 

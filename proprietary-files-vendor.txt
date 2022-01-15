@@ -252,7 +252,7 @@ vendor/lib/vendor.mediatek.hardware.nvram@1.0_vendor.so
 vendor/lib/vendor.mediatek.hardware.power@1.1_vendor.so
 vendor/lib/vendor.mediatek.hardware.pq@2.0_vendor.so
 vendor/lib/vendor.mediatek.hardware.radio.deprecated@1.1_vendor.so
-vendor/lib/vendor.mediatek.hardware.radio@2.0_vendor.so
+vendor/lib/vendor.mediatek.hardware.radio@2.0_vendor.so|1c7d7a1497106cedd509e7e212710c34a23013c0
 vendor/lib64/hw/android.hardware.sensors@1.0-impl-mediatek.so
 vendor/lib64/hw/vendor.mediatek.hardware.keymanage@1.0-impl.so
 vendor/lib64/hw/vendor.mediatek.hardware.mtkcodecservice@1.1-impl.so
@@ -282,7 +282,7 @@ vendor/lib64/vendor.mediatek.hardware.nvram@1.0_vendor.so
 vendor/lib64/vendor.mediatek.hardware.power@1.1_vendor.so
 vendor/lib64/vendor.mediatek.hardware.pq@2.0_vendor.so
 vendor/lib64/vendor.mediatek.hardware.radio.deprecated@1.1_vendor.so
-vendor/lib64/vendor.mediatek.hardware.radio@2.0_vendor.so
+vendor/lib64/vendor.mediatek.hardware.radio@2.0_vendor.so|562ca2c74ed9e60d46920cb7df84846ba86578b1
 vendor/lib64/vendor.mediatek.hardware.wifi.hostapd@1.0_vendor.so
 vendor/lib64/vendor.mediatek.hardware.wifi.supplicant@1.1_vendor.so
 
