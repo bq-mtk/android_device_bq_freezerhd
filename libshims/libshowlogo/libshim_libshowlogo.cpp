@@ -47,3 +47,8 @@ extern "C" void _ZN7android21SurfaceComposerClient21openGlobalTransactionEv() {
 extern "C" void _ZN7android14SurfaceControl8setLayerEi(int32_t layer){}
 
 extern "C" void _ZN7android21SurfaceComposerClient22closeGlobalTransactionEb() {}
+
+// android::Fence::~Fence()
+extern "C" void _ZN7android5FenceD1Ev() {
+  // no-op, the explicit destructor was replaced with = default;
+}
