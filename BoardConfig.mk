@@ -129,6 +129,7 @@ TARGET_OTA_ASSERT_DEVICE:= freezerhd
 BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/seccomp
 
 # SELinux
+SELINUX_IGNORE_NEVERALLOWS := true
 BOARD_SEPOLICY_DIRS += \
         $(DEVICE_PATH)/sepolicy/mtk/basic/non_plat \
         $(DEVICE_PATH)/sepolicy/mtk/bsp/non_plat \
