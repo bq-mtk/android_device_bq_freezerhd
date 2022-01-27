@@ -27,8 +27,6 @@ allow mdlogger self:tcp_socket { create_stream_socket_perms };
 allow mdlogger vfat:dir create_dir_perms;
 allow mdlogger vfat:file create_file_perms;
 
-#mdlogger for read /sdcard
-#allow mdlogger log_device:chr_file w_file_perms;
 allow mdlogger tmpfs:lnk_file read;
 allow mdlogger storage_file:lnk_file rw_file_perms;
 allow mdlogger mnt_user_file:dir search;
@@ -45,10 +43,6 @@ allow mdlogger storage_file:file { create_file_perms };
 
 ## purpose: avc: denied { read } for name="plat_file_contexts"
 allow mdlogger file_contexts_file:file { read getattr open };
-
-#permission for read boot mode
-#avc: denied { open }  path="/sys/devices/virtual/BOOT/BOOT/boot/boot_mode" dev="sysfs"
-allow mdlogger sysfs:file { read open };
 
 # Allow read avc: denied { read } for name="mddb" dev="mmcblk0p25" ino=681 
 # scontext=u:r:mdlogger:s0 tcontext=u:object_r:system_file:s0 tclass=dir permissive=0

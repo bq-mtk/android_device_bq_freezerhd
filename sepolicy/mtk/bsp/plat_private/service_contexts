@@ -9,11 +9,13 @@ permrecords         u:object_r:mtk_permrecords_service:s0
 media.mmsdk                             u:object_r:mtk_advcamserver_service:s0
 media.advcam                            u:object_r:mtk_advcamserver_service:s0
 AAL                                     u:object_r:aal_service:s0
+terservice                              u:object_r:terservice_service:s0
 
 # System Server Services
 mobile                                  u:object_r:mtk_mobile_service:s0
 msgmonitorservice                       u:object_r:mtk_msg_monitor_service:s0
 mtk-perfservice                         u:object_r:mtk_perf_service:s0
+power_hal_mgr_service                   u:object_r:mtk_power_hal_mgr_service:s0
 epdg_service                            u:object_r:mtk_epdg_service:s0
 rns                                     u:object_r:mtk_rns_service:s0
 phoneEx                                 u:object_r:mtk_radio_service:s0
@@ -24,13 +26,15 @@ mtksimphonebook                         u:object_r:mtk_simphonebook_service:s0
 data_shaping                            u:object_r:mtk_data_shaping_service:s0
 mtkconnmetrics                          u:object_r:mtk_connmetrics_service:s0
 search_engine_service                   u:object_r:mtk_search_engine_service:s0
+omadm_service                           u:object_r:mtk_omadm_service:s0
 duraspeed                               u:object_r:mtk_duraspeed_service:s0
+FullscreenSwitchService                 u:object_r:mtk_fullscreen_switch_service:s0
+fm_radio_service                        u:object_r:mtk_fm_radio_service:s0
 
 # Other Services
 GoogleOtaBinder                         u:object_r:ota_agent_service:s0
 GpuAppSpectatorService                  u:object_r:gas_srv_service:s0
 GuiExtService                           u:object_r:guiext-server_service:s0
-DmAgent                                 u:object_r:dm_agent_binder_service:s0
 FpsPolicyService                        u:object_r:fpspolicy-server_service:s0
 isubstub                                u:object_r:radio_service:s0
 appdetection                            u:object_r:mtk_appdetection_service:s0
@@ -45,9 +49,6 @@ PPLAgent                                u:object_r:ppl_agent_service:s0
 nfc.st_ext                              u:object_r:nfc_service:s0
 nfc_settings                            u:object_r:nfc_service:s0
 
-# MTK dongle Services
-iphonesubinfotedongle                   u:object_r:radio_service:s0
-isubtedongle                            u:object_r:radio_service:s0
-simphonebooktedongle                    u:object_r:radio_service:s0
-ismstedongle                            u:object_r:radio_service:s0
-tedongleservice                         u:object_r:radio_service:s0
+# Trustonic Services
+vendor.trustonic.teeservice.ITeeService    					u:object_r:tee_service:s0
+vendor.trustonic.teeregistryservice.ITeeRegistryService    	u:object_r:teeregistry_service:s0

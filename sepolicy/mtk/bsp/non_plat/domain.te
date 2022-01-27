@@ -16,3 +16,8 @@ allow { domain -isolated_app } storage_file:dir search;
 # Operation : Migration
 # Purpose : for aee dump systemAPI db, get backtrace
 allow domain aee_aedv:process sigchld;
+
+# Date : WK18.34
+# Operation : Migration
+# Purpose : for CTS android.os.cts.SecurityPatchTest
+get_prop(domain, vendor_security_patch_level_prop)

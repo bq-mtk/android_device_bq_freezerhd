@@ -14,7 +14,6 @@ allow drmserver platform_app:file { read getattr open };
 allow drmserver property_socket:sock_file write;
 allow drmserver radio_data_file:file { read getattr open };
 allow drmserver sdcard_type:file open;
-#allow drmserver tmpfs:lnk_file read;
 
 #Add by rui.hu
 # Date : WK14.36
@@ -149,7 +148,7 @@ allow drmserver media_rw_data_file:file write;
 allow drmserver ringtone_file:file read;
 
 # Fix boot violation
-allow drmserver proc:file r_file_perms;
+allow drmserver proc_uptime:file r_file_perms;
 
 # Add by : sheetal.garg
 # Operation : Migration issue
@@ -160,5 +159,5 @@ allow drmserver untrusted_app_25:dir search;
 allow drmserver untrusted_app_25:file { getattr open read };
 
 #============= drmserver ==============
-allow drmserver proc:file read;
+allow drmserver proc_uptime:file read;
 allow drmserver sdcardfs:file open;

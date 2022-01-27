@@ -3,11 +3,6 @@
 
 # Date : WK14.34
 # Operation : Migration
-# Purpose : 6571/6572 GMO external memory access(/dev/exm0)
-#allow installd exm0_device:chr_file { read write ioctl open };
-
-# Date : WK14.34
-# Operation : Migration
 # Purpose : Move app to phone storage
 # 1. Enter Settings->Apps
 # 2. Select Downloaded tab
@@ -16,11 +11,6 @@
 allow installd apk_tmp_file:dir getattr;
 allow installd vfat:file getattr;
 
-# Date : WK14.34
-# Operation : Migration
-# Purpose : for CIP project (access /custom partition)
-allow installd custom_file:file { getattr read open };
-allow installd custom_file:dir search;
 
 # Date : WK14.34
 # Operation : Development GMO Feature "Move OAT to SD Card"
@@ -33,13 +23,6 @@ allow installd sdcard_type:file { write getattr setattr read create unlink open 
 # Operation : SQC1
 # Purpose : for access .android_secure
 allow installd vfat:dir search;
-
-# Date : WK14.44
-# Operation : SQC1
-# Purpose : for phone encrypted
-# Disabled 20150109 for bad policy review (ALPS01902735)
-#allow installd unlabeled:fifo_file write;
-#allow installd unlabeled:sock_file write;
 
 # Date : WK14.46
 # Operation : SQC1

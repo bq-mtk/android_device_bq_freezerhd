@@ -45,3 +45,33 @@ attribute mtk_hal_keyattestation_server;
 attribute hal_nvramagent;
 attribute hal_nvramagent_client;
 attribute hal_nvramagent_server;
+
+# Date: 2018/05/25
+# FM HIDL
+attribute mtk_hal_fm;
+attribute mtk_hal_fm_client;
+attribute mtk_hal_fm_server;
+
+# Date: 2018/03/23
+# log hidl
+attribute mtk_hal_log;
+attribute mtk_hal_log_client;
+attribute mtk_hal_log_server;
+
+# Date: 2018/06/26
+# em hidl
+attribute mtk_hal_em;
+attribute mtk_hal_em_client;
+attribute mtk_hal_em_server;
+
+# Date: 2018/07/02
+# MDP HIDL
+attribute hal_mms;
+attribute hal_mms_client;
+attribute hal_mms_server;
+
+# Date: 2017/09/03
+# OMADM HIDL
+attribute hal_omadm;
+attribute hal_omadm_client;
+attribute hal_omadm_server;

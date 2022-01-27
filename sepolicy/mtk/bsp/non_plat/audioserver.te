@@ -22,3 +22,13 @@ allow audioserver mtk_perf_service:service_manager find;
 # Purpose : for ViLTE - set VTservice has permission to access me
 allow audioserver vtservice:binder { transfer call };
 allow audioserver vtservice:fd use;
+
+# Date : WK18.21
+# Operation : Migartion
+# Purpose : MTK Audio debug use
+set_prop(audioserver, audio_prop)
+
+# Date : WK18.39
+# Operation : Debug
+# Purpose : Allow to get bluetooth prop
+get_prop(audioserver, mtk_bluetooth_prop)

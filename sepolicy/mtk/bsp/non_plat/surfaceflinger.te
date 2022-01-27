@@ -10,7 +10,6 @@ file_type_auto_trans(surfaceflinger, system_data_file, sf_bqdump_data_file);
 allow surfaceflinger anr_data_file:dir { write search create add_name };
 allow surfaceflinger anr_data_file:file { create write};
 allow surfaceflinger aee_exp_data_file:file write;
-allow surfaceflinger custom_file:dir search;
 allow surfaceflinger aee_dumpsys_data_file:file write;
 allow surfaceflinger RT_Monitor_device:chr_file { read ioctl open };
 
@@ -33,7 +32,6 @@ allow surfaceflinger MTK_SMI_device:chr_file { read write open ioctl };
 # for bootanimation
 allow surfaceflinger bootanim:dir search;
 allow surfaceflinger bootanim:file { read getattr open };
-allow surfaceflinger self:capability dac_override;
 
 # for MTK Emulator HW GPU
 allow surfaceflinger qemu_pipe_device:chr_file rw_file_perms;
@@ -60,18 +58,13 @@ not_full_treble(`
     allow surfaceflinger mobicore:unix_stream_socket connectto;
 ')
 
-allow surfaceflinger mobicore_data_file:file { read getattr open };
 allow surfaceflinger mobicore_user_device:chr_file { read write ioctl open };
-allow surfaceflinger mobicore_data_file:dir search;
 
 # take down the boot time for bootprof
-allow surfaceflinger proc:file write;
+allow surfaceflinger proc_bootprof:file write;
 
 # notify perf service of SF information for performance
 allow surfaceflinger mtk_perf_service:service_manager find;
-
-# HWC need to write mhl 4k information to debug node of GED
-#allow surfaceflinger debugfs:file { open write read };
 
 # allow SF to adjust vsync offset in freemode
 allow surfaceflinger debugfs:file getattr;
@@ -115,3 +108,5 @@ not_full_treble(`
     allow {domain -init -isolated_app -webview_zygote -hal_configstore_server} fpspolicy-server_service:service_manager find;
 ')
 allow surfaceflinger mtk_dfrc_device:chr_file rw_file_perms;
+
+allow surfaceflinger file_contexts_file:file { open getattr };

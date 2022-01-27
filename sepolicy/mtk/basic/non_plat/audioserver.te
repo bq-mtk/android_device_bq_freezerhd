@@ -2,11 +2,6 @@
 # MTK Policy Rule for vendor
 # ==============================================
 
-# Data : WK14.39
-# Operation : Migration
-# Purpose : dump for debug
-allow audioserver audiohal_prop:property_service set;
-
 # Date: WK14.44
 # Operation : Migration
 # Purpose : EVDO
@@ -24,8 +19,6 @@ allow audioserver sysfs_lowmemorykiller:file { read open };
 allow audioserver proc_mtkcooler:dir search;
 allow audioserver proc_mtktz:dir search;
 allow audioserver proc_thermal:dir search;
-allow audioserver thermal_manager_data_file:file create_file_perms;
-allow audioserver thermal_manager_data_file:dir { rw_dir_perms setattr };
 
 # Date : WK15.03
 # Operation : Migration
@@ -45,7 +38,6 @@ allow audioserver tmpfs:dir search;
 # Date : WK16.18
 # Operation : Migration
 # Purpose: access sysfs node
-allow audioserver sysfs:file { open read write };
 allow audioserver sysfs_ccci:dir search;
 
 # Purpose: Dump debug info
@@ -59,21 +51,3 @@ allow audioserver proc_ged:file {open read write ioctl getattr};
 # Date : WK16.48
 # Purpose: Allow to trigger AEE dump
 allow audioserver aee_aed:unix_stream_socket connectto;
-
-
-
-# Date : WK17.28
-# Operation : MT6757 SQC
-# Purpose : Change thermal config
-allow audioserver mtk_thermal_config_prop:file { getattr open read };
-allow audioserver mtk_thermal_config_prop:property_service set;
-
-# Date : WK17.42
-# Operation : MT6737m CTS
-# Purpose : Read compensation filter parameter from nvram data
-allow audioserver nvdata_file:dir r_dir_perms;
-allow audioserver nvdata_file:file r_file_perms;
-
-# Date : WK17.42
-# Operation : ALPS03606059
-allow audioserver mtk_audiohal_data_file:dir r_dir_perms;

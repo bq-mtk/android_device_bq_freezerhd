@@ -5,44 +5,49 @@
 # Date : 2016/06/01
 # Operation: TEEI integration
 # Purpose: Microtrust teei_daemon service
-type teei_daemon, domain;
-type teei_daemon_exec, exec_type, file_type, vendor_file_type;
-type teei_client_device, dev_type;
 
-allow teei_daemon self:capability sys_module;
-allow teei_daemon teei_config_device:chr_file rw_file_perms;
-allow teei_daemon teei_client_device:chr_file { create setattr unlink rw_file_perms };
-allow teei_daemon teei_vfs_device:chr_file rw_file_perms;
-allow teei_daemon teei_rpmb_device:chr_file rw_file_perms;
-allow teei_daemon teei_data_file:dir create_dir_perms;
-allow teei_daemon teei_data_file:file rw_file_perms;
-allow teei_daemon teei_data_file:file create_file_perms;
-allow teei_daemon self:capability dac_override;
-allow teei_daemon device:dir rw_dir_perms;
-allow teei_daemon cache_file:file rw_file_perms;
+allow tee self:capability sys_module;
+allow tee teei_config_device:chr_file rw_file_perms;
+allow tee teei_client_device:chr_file { create setattr unlink rw_file_perms };
+allow tee teei_vfs_device:chr_file rw_file_perms;
+allow tee teei_rpmb_device:chr_file rw_file_perms;
+allow tee teei_data_file:dir create_dir_perms;
+allow tee teei_data_file:file rw_file_perms;
+allow tee teei_data_file:file create_file_perms;
+allow tee self:capability dac_override;
+allow tee device:dir rw_dir_perms;
+
+allow tee teei_control_file:dir { search open read };
+allow tee teei_control_file:file { open read write };
+allow tee teei_control_file:lnk_file { open read write };
+
+#allow teei_daemon access /persist section
+allow tee mnt_vendor_file:dir { create write add_name search read open};
+allow tee mnt_vendor_file:file { read write create open getattr };
+allow tee persist_data_file:dir { create write add_name search read open};
+allow tee persist_data_file:file { read write create open getattr };
 
 #enable access android property
-allow teei_daemon property_socket:sock_file {read write};
-allow teei_daemon init:unix_stream_socket {connectto};
-allow teei_daemon soter_teei_prop:property_service {set};
-allow teei_daemon teei_vfs_device:chr_file rw_file_perms;
-allow teei_daemon teei_rpmb_device:chr_file rw_file_perms;
-
-#set up domain
-init_daemon_domain(teei_daemon)
+allow tee property_socket:sock_file {read write};
+allow tee init:unix_stream_socket {connectto};
+allow tee soter_teei_prop:property_service {set};
 
 #for debug only
-allow teei_daemon kmsg_device:chr_file {open write};
+allow tee kmsg_device:chr_file {open write};
 
 #define for mlsconstrain
 typeattribute teei_client_device mlstrustedobject;
 
-#allow teei_daemon save fingerprint data
-allow teei_daemon fingerprintd_data_file:dir { search write add_name };
-allow teei_daemon fingerprintd_data_file:file { create read write open };
+#allow tee read ut_keymaster data
+allow tee ut_keymaster_device:chr_file rw_file_perms;
 
-#allow teei_daemon read ut_keymaster data
-allow teei_daemon ut_keymaster_device:chr_file rw_file_perms;
+#allow load teei drm drivers
+allow init teei_client_device:chr_file rw_file_perms;
+allow kernel teei_client_device:chr_file rw_file_perms;
 
-#allow hal_keymaster_attestation to operate ut_keymaster_device
-allow hal_keymaster_attestation ut_keymaster_device:chr_file { read write ioctl open };
+allow tee self:capability setuid;
+allow tee self:capability sys_rawio;
+allow tee block_device:dir search;
+allow tee teei_rpmb_device:blk_file { read write ioctl open };
+allow tee nvram_device:blk_file rw_file_perms;
+allow tee nvram_device:blk_file { open read write getattr };

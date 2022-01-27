@@ -44,7 +44,6 @@ allow ged_srv init:unix_stream_socket connectto;
 allow ged_srv proc_ged:file {open read write ioctl};
 
 r_dir_file(ged_srv, domain)
-r_dir_file(ged_srv, proc)
 r_dir_file(ged_srv, shell)
 r_dir_file(ged_srv, platform_app)
 r_dir_file(ged_srv, priv_app)

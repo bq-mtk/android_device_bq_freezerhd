@@ -30,3 +30,9 @@ allow netd system_prop:property_service set;
 # Operation : MD direct Tethering Test
 # # Purpose : For support MDT
 allowxperm netd self:unix_stream_socket ioctl {SIOCSIFBR SIOCBRADDBR SIOCBRADDIF SIOCDEVPRIVATE};
+
+# Date : WK19.07 2019/02/15
+# Operation : mdi_redirector integration test with AT&T Linkmaster
+# Purpose : Allow mdi_redirector to pull OTA packets
+allow netd mdi_redirector:fd use;
+allow netd mdi_redirector:tcp_socket { rw_socket_perms_no_ioctl };

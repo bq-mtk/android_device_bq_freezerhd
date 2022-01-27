@@ -29,8 +29,6 @@ allow mtk_hal_power sysfs_devices_system_cpu:file write;
 allow mtk_hal_power debugfs_ged:dir search;
 allow mtk_hal_power debugfs_ged:file { getattr open read write };
 
-allow mtk_hal_power system_data_file:dir { create write add_name };
-
 # proc_thermal
 allow mtk_hal_power proc_thermal:file { write open };
 
@@ -56,8 +54,8 @@ allow mtk_hal_power mtk_powerhal_data_file:file {create_file_perms rw_file_perms
 allow mtk_hal_power mtk_powerhal_data_file:sock_file {create_file_perms rw_file_perms};
 
 #camera contorl cpu
-allow mtk_hal_power mtk_hal_camera:dir search;
-allow mtk_hal_power mtk_hal_camera:file { read open };
+allow mtk_hal_power mtk_hal_camera:dir { search getattr };
+allow mtk_hal_power mtk_hal_camera:file { getattr open write read };
 
 # Date : 2017/10/24
 # Operation: SQC
@@ -66,4 +64,38 @@ allow mtk_hal_power proc_thermal:dir search;
 allow mtk_hal_power sysfs:file {open write read};
 allow mtk_hal_power debugfs_fpsgo:dir search;
 allow mtk_hal_power debugfs_fpsgo:file { getattr open write read };
+
+# Date : 2017/12/19
+# Operation: SQC
+# Purpose : Allow powerHAL to access wlan
+allow mtk_hal_power proc_net:file {open write};
+
+# Date : 2017/12/21
+# Operation: SQC
+# Purpose : Allow powerHAL to access mediacodec
+allow mtk_hal_power mediacodec:dir search;
+allow mtk_hal_power mediacodec:dir getattr;
+allow mtk_hal_power mediacodec:file { getattr open write read };
+
+set_prop(mtk_hal_power, mtk_thermal_config_prop)
+
+# Date : 2018/03/16
+# Operation: SQC
+# Purpose : Allow powerHAL to access /d/mtkfb
+allow mtk_hal_power debugfs_fb:dir search;
+allow mtk_hal_power debugfs_fb:file { getattr open read write };
+
+# Date : 2018/06/26
+# Operation: Thermal change policy in perfservice
+
+allow mtk_hal_power proc_thermal:file read;
+allow mtk_hal_power thermal_manager_data_file:file { write getattr setattr read lock open };
+allow mtk_hal_power thermalloadalgod:unix_stream_socket connectto;
+
+allow mtk_hal_power proc_mtkcooler:dir search;
+allow mtk_hal_power proc_mtkcooler:file { read write open };
+allow mtk_hal_power proc_mtktz:dir search;
+allow mtk_hal_power proc_mtktz:file {open read write };
+
+
 

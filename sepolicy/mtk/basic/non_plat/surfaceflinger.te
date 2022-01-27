@@ -20,26 +20,15 @@ allow surfaceflinger gpu_device:dir search;
 
 # Date : WK17.12
 # Purpose: Fix bootup fail
-allow surfaceflinger proc:file r_file_perms;
+allow surfaceflinger proc_bootprof:file r_file_perms;
 
 #============= surfaceflinger ==============
 allow surfaceflinger debugfs_ion:dir search;
-
-#============= surfaceflinger ==============
-allow surfaceflinger debugfs_tracing:file write;
-
-#============= surfaceflinger ==============
-allow surfaceflinger debugfs_tracing:file open;
 
 # Date : WK17.30
 # Operation : O Migration
 # Purpose: Allow to access cmdq driver
 allow surfaceflinger mtk_cmdq_device:chr_file { read ioctl open };
-
-# Date : WK17.32
-# Operation : O Migration
-# Purpose: Allow to access property
-get_prop(surfaceflinger, graphics_config_prop)
 
 # Date : W17.39
 # Perform Binder IPC.
@@ -47,14 +36,10 @@ binder_use(surfaceflinger)
 binder_call(surfaceflinger, binderservicedomain)
 binder_call(surfaceflinger, appdomain)
 binder_call(surfaceflinger, mtkbootanimation)
-binder_call(surfaceflinger, mtkbootvideo)
 binder_service(surfaceflinger)
 
 allow surfaceflinger mtkbootanimation:dir search;
 allow surfaceflinger mtkbootanimation:file { read getattr open };
-
-allow surfaceflinger mtkbootvideo:dir search;
-allow surfaceflinger mtkbootvideo:file { read getattr open };
 
 # Date : W17.43
 # Operation : Migration
@@ -66,5 +51,12 @@ allow surfaceflinger proc_perfmgr:file {open read ioctl};
 # Operation : Debug
 # Purpose: Allow to dump HWC backtrace
 get_prop(surfaceflinger, graphics_hwc_pid_prop)
+get_prop(surfaceflinger, graphics_debug_prop)
+get_prop(surfaceflinger, graphics_hwc_latch_unsignaled_prop)
 allow surfaceflinger hal_graphics_composer_default:dir search;
 allow surfaceflinger hal_graphics_composer_default:lnk_file read;
+
+# Date : WK18.36
+# Operation : Debug
+# Purpose: Allow to dump buffer queue
+get_prop(surfaceflinger, debug_bq_dump_prop)

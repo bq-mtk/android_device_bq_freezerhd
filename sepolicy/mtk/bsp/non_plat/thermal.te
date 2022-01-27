@@ -43,3 +43,17 @@ allow thermal rild:unix_stream_socket connectto;
 vndbinder_use(thermal);
 
 
+# Data: 2018/08/26
+# Operation: Thermal
+# Purpose : add permission for thermal daemon to access mtcloader
+allow thermal property_socket:sock_file write;
+allow thermal init:unix_stream_socket connectto;
+allow thermal mtk_thermal_config_prop:file {read open getattr};
+set_prop(thermal ,mtk_thermal_config_prop)
+get_prop(thermal ,mtk_thermal_config_prop)
+allow thermal thermal_manager_data_file:file rw_file_perms;
+allow thermal thermalloadalgod:unix_stream_socket connectto;
+allow thermal proc_mtkcooler:dir search;
+
+
+

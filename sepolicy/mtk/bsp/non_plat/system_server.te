@@ -9,13 +9,6 @@ allow system_server guiext-server:binder { transfer call };
 
 # Date: WK14.43
 # Operation : Migration
-# Purpose : access to atcid from system server for GPS AT Command.
-allow system_server atci_service:unix_dgram_socket sendto;
-allow system_server atci_service:dir write;
-allow system_server atci_service:dir add_name;
-
-# Date: WK14.43
-# Operation : Migration
 # Purpose : for bring up
 allow system_server sf_rtt_file:dir relabelto;
 
@@ -31,8 +24,7 @@ allow system_server sf_rtt_file:file r_file_perms;
 
 # Date: WK14.47
 # Operation : Sanity
-# Purpose : for /system/app/mcRegistry and /proc/secmem (TEE enable)
-allow system_server mobicore_data_file:dir r_dir_perms;
+# Purpose : for /proc/secmem (TEE enable)
 allow system_server proc_secmem:file rw_file_perms;
 
 # Date: WK16.30
@@ -72,10 +64,6 @@ allow system_server gas_srv_service:service_manager find;
 # Date : 2017/4/14
 # Purpose : Add permission for registering MtkTelecomService to ServiceManager
 allow system_server mtk_telecom_service:service_manager add;
-
-# Date : W17.24
-# Add for PQ:AppdetectionService
-set_prop(system_server,appdetection_prop);
 
 # Date : W17.24
 # Purpose: Allow to use HAL PQ
@@ -125,22 +113,106 @@ allow system_server netd:process signal;
 allow system_server media_wfd_prop:property_service set;
 allow system_server wifi_prop:property_service set;
 
+# Date:W17.47
+# Purpose : Allow to enable/disable log too much
+set_prop(system_server, logmuch_prop);
+
 # Date : W17.48
 # Operation : Migration
 # Purpose : Allow system_server to add duraspeed
 allow system_server mtk_duraspeed_service:service_manager add;
+
+# Date : W17.51
+# Operation : Migration
+# Purpose : Allow system_server to add fullscreen switch service
+allow system_server mtk_fullscreen_switch_service:service_manager add;
 
 # Date:W17.07
 # Operation : dfps hal
 # Purpose : dfps hal interface permission
 hal_client_domain(system_server,hal_dfps)
 
-allow system_server mtk_hdmi_service:service_manager find;
+#============= system_server ==============
+allow system_server audioserver:file write;
 
+# Date : 2018/03/06
+# Purpose : Add mtk_hal_netdagent_hwservice for EM firewall usage
+allow system_server mtk_hal_netdagent_hwservice:hwservice_manager find;
+allow system_server netdagent:binder call;
 
-
-# Date : WK17.21
+# Date : W18.20
 # Operation : Migration
-# Purpose : for wfd sink feature
-allow system_server dhcp_data_file:dir search;
-allow system_server dhcp_data_file:file { read getattr open };
+# Purpose : for mobicore (Trustonic TEE)
+allow system_server mobicore_vendor_file:dir { read getattr open };
+
+# Date : W18.22
+# Operation : for DuraSpeed
+#============= system_server ==============
+allow system_server proc_cpu_loading:file { write getattr open };
+
+# Date : W18.24
+# Operation : for AMS log
+#============= system_server ==============
+set_prop(system_server, mtk_amslog_prop)
+
+# Date : W18.25
+# Operation : for AMS-aal
+#============= system_server ==============
+set_prop(system_server, mtk_amsaal_prop)
+
+# Date : 6/20/2018
+# Operation : MTK fm hal migration
+# Purpose : MTK fm hal interface permission
+allow system_server fm_hidl_service:binder {call transfer};
+allow fm_hidl_service system_server:binder {call transfer};
+allow system_server mtk_hal_fm_hwservice:hwservice_manager find;
+binder_call(system_server, mtk_hal_fm)
+
+# Date: 2018/07/04
+# Operation: P migration
+# Purpose : allow radio get vzw device type property
+get_prop(system_server, persist_vendor_vzw_device_type)
+
+# Date : 2018/07/03
+# Stage: Migration
+# Purpose: allow system server to get RTT property
+get_prop(system_server, mtk_rtt_prop)
+
+# Date : W18.27
+# Operation : Migration
+allow system_server mtk_data_shaping_service:service_manager add;
+
+# Date : W18.28
+# Operation : For auto tethering testing
+#============= system_server ==============
+get_prop(system_server, mtk_em_net_auto_tethering_prop)
+
+# Date : W18.28
+# Operation : Support telephony log
+#============= system_server ==============
+get_prop(system_server, mtk_em_tel_log_prop)
+
+# Date : W18.29
+# Operation : For background data disable function
+#============= system_server ==============
+get_prop(system_server, mtk_bgdata_disabled)
+
+# Date : W1831
+# Purpose : Support Trustonic TeeService
+#============= system_server ==============
+binder_call(system_server, teed_app)
+binder_call(system_server, teeregistryd_app)
+allow system_server tee_service:service_manager find;
+allow system_server teeregistry_service:service_manager find;
+
+# Date: 2018/08/14
+# Operation: Support VzW MDMI
+get_prop(system_server, mtk_mdmi_prop)
+
+# Date: 2018/09/18
+# Operation : for DuraSpeed
+#============= system_server ==============
+allow system_server debugfs_shrinker_debug:file { read open };
+allow system_server debugfs_ion:dir { read open };
+allow system_server debugfs_ion:file { read open getattr };
+allow system_server debugfs_tracing_debug:file { read open };

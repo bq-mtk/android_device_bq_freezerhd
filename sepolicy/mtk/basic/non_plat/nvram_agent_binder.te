@@ -1,7 +1,6 @@
 # ==============================================
 # Policy File of /vendor/bin/nvram_agent_binder Executable File
 
-
 # ==============================================
 # Type Declaration
 # ==============================================
@@ -18,7 +17,6 @@ init_daemon_domain(nvram_agent_binder)
 # Purpose : ensure nvram user can access nvram file normally. 
 allow nvram_agent_binder nvram_agent_service:service_manager add;
 
-
 # Date : WK14.43
 # Operation : 2rd Selinux Migration 
 # Purpose : the role of nvram_agent_binder is same with nvram_daemon except property_set & exect permission
@@ -32,8 +30,6 @@ allow nvram_agent_binder nvdata_file:lnk_file read;
 allow nvram_agent_binder nvdata_file:dir create_dir_perms;
 allow nvram_agent_binder nvdata_file:file create_file_perms;
 
-#allow nvram_agent_binder system_file:file execute_no_trans;
-
 allow nvram_agent_binder als_ps_device:chr_file r_file_perms;
 allow nvram_agent_binder mtk-adc-cali_device:chr_file rw_file_perms;
 allow nvram_agent_binder gsensor_device:chr_file r_file_perms;
@@ -41,8 +37,7 @@ allow nvram_agent_binder gyroscope_device:chr_file r_file_perms;
 allow nvram_agent_binder init:unix_stream_socket connectto;
 allow nvram_agent_binder property_socket:sock_file write;
 allow nvram_agent_binder sysfs:file write;
-allow nvram_agent_binder self:capability { fowner chown dac_override fsetid };
-allow nvram_agent_binder system_data_file:dir create_file_perms;
+allow nvram_agent_binder self:capability { fowner chown fsetid };
 
 # Purpose: for backup
 allow nvram_agent_binder nvram_device:chr_file rw_file_perms;
@@ -57,10 +52,8 @@ allow nvram_agent_binder mtd_device:chr_file rw_file_perms;
 #for nvram agent hidl
 allow nvram_agent_binder hwservicemanager_prop:file r_file_perms;
 
-
 #for nvram hidl client support
 allow nvram_agent_binder sysfs:file { read open };
-allow nvram_agent_binder system_data_file:lnk_file read;
 
 # Allow to use HWBinder IPC
 hwbinder_use(nvram_agent_binder);
@@ -68,3 +61,14 @@ hwbinder_use(nvram_agent_binder);
 # Allow a set of permissions required for a domain to be a server which provides a HAL implementation over HWBinder.
 hal_server_domain(nvram_agent_binder, hal_nvramagent)
 
+# Date : WK18.16
+# Operation: P migration
+# Purpose: Allow nvram_daemon to get tel_switch_prop
+get_prop(nvram_daemon, tel_switch_prop)
+
+# Date : WK18.21
+# Operation: P migration
+# Purpose: Allow to search /mnt/vendor/nvdata when using nvram function
+allow nvram_agent_binder mnt_vendor_file:dir search;
+
+allow nvram_agent_binder sysfs_boot_mode:file r_file_perms;

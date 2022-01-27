@@ -67,3 +67,10 @@ hal_client_domain(mediacodec, hal_allocator)
 # Stage: O Migration, SQC
 # Purpose: Allow to use ape decoder
 hal_client_domain(mediacodec, hal_mtkcodecservice)
+
+
+# Date : WK18.46
+# Operation : WVL1 IT for TEEI
+# Purpose : SVP module operates TEEI
+hal_client_domain(mediacodec, hal_capi)
+allow mediacodec teei_client_device:chr_file rw_file_perms;

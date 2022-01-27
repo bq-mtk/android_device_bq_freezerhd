@@ -62,8 +62,6 @@ allow nfc guiext-server:binder call;
 # Purpose   : Set NFC permission for WFD
 
 allow nfc surfaceflinger:dir search;
-allow nfc surfaceflinger:file { read getattr open };
-
 
 # ==============================================
 # Date      : 2014/10/15

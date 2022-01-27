@@ -11,7 +11,5 @@ allow zygote proc_ged:file {open read write ioctl getattr};
 allow zygote gpu_device:dir search;
 allow zygote gpu_device:chr_file { open read write ioctl getattr};
 
-# Date : WK17.32
-# Operation : O Migration
-# Purpose: Allow to access property
-get_prop(zygote, graphics_config_prop)
+allow zygote proc_bootprof:file rw_file_perms;
+allow zygote proc_uptime:file rw_file_perms;

@@ -43,4 +43,4 @@ allow batterywarning activity_service:service_manager find;
 # Date : 2017/07/03
 # Operation : Migration
 # Purpose : allow battery warning read file
-allow batterywarning sysfs:file { open read getattr };
+allow batterywarning sysfs_battery_warning:file { open read getattr };

@@ -23,7 +23,6 @@ type ccci_rpcd, domain;
 
 #permissive ccci_rpcd;
 init_daemon_domain(ccci_rpcd)
-#unconfined_domain(ccci_rpcd)
 
 wakelock_use(ccci_rpcd)
 #============= ccci_rpcd ==============

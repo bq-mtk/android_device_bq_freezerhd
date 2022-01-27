@@ -27,10 +27,26 @@ type nvram_agent_binder_hwservice, hwservice_manager_type;
 # PQ HIDL
 type mtk_hal_pq_hwservice, hwservice_manager_type;
 
-# Date: 2018/01/04
-# key manager hidl
-type mtk_hal_keymanage_hwservice, hwservice_manager_type;
-
 # Date: 2017/07/20
 # keymaster attestation hidl
 type mtk_hal_keyattestation_hwservice, hwservice_manager_type;
+
+# Date: 2018/09/03
+# omadm hidl
+type mtk_hal_omadm_hwservice, hwservice_manager_type;
+
+# Date: 2018/05/25
+# FM HIDL
+type mtk_hal_fm_hwservice, hwservice_manager_type;
+
+# Date: 2018/03/23
+# log hidl
+type mtk_hal_log_hwservice, hwservice_manager_type;
+
+# Date: 2018/06/26
+# em hidl
+type mtk_hal_em_hwservice, hwservice_manager_type;
+
+# Date: 2018/07/02
+# MMS HIDL
+type mtk_hal_mms_hwservice, hwservice_manager_type;

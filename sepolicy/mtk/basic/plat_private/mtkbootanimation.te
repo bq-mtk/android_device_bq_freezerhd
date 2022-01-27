@@ -39,18 +39,13 @@ allow mtkbootanimation hal_graphics_allocator:fd use;
 allow mtkbootanimation hal_graphics_composer:fd use;
 
 # Read access to pseudo filesystems.
-r_dir_file(mtkbootanimation, proc)
+#r_dir_file(mtkbootanimation, proc)
 allow mtkbootanimation proc_meminfo:file r_file_perms;
-r_dir_file(mtkbootanimation, sysfs)
+#r_dir_file(mtkbootanimation, sysfs)
 r_dir_file(mtkbootanimation, cgroup)
 
 # System file accesses.
 allow mtkbootanimation system_file:dir r_dir_perms;
-# Date : WK14.31
-# Operation : Migration
-# Purpose : For IPC communication
-### TBD, neverallowxperm on line 177 of system/sepolicy/public/domain.te
-#allow mtkbootanimation self:netlink_socket create_socket_perms;
 
 # Date : WK14.32
 # Operation : Migration
@@ -86,10 +81,3 @@ allow mtkbootanimation surfaceflinger:fifo_file rw_file_perms;
 
 allow mtkbootanimation gpu_device:dir search;
 
-
-
-#============= bootanim ==============
-allow mtkbootanimation debugfs_tracing:file write;
-
-#============= bootanim ==============
-allow mtkbootanimation debugfs_tracing:file open;

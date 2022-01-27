@@ -3,7 +3,7 @@
 #
 
 # This is for common part
-type vendor_app, domain;
+type vendor_app, domain, mlstrustedsubject;
 
 app_domain(vendor_app)
 
@@ -47,6 +47,28 @@ allow vendor_app vendor_app_file:lnk_file { open getattr read };
 unix_socket_connect(vendor_app, mnld, mnld);
 #============= vendor_app ==============
 allow vendor_app mnld:unix_stream_socket connectto;
+allow vendor_app connsyslogger:unix_stream_socket connectto;
 # PMTKLoggerProxy need copy exception db from data/vendor folder
 allow vendor_app aee_exp_data_file:file r_file_perms;
 allow vendor_app aee_exp_data_file:dir r_dir_perms;
+
+# Date : WK18.26
+# Operation : P migration
+# Purpose : for engineermode camera app mode
+set_prop(vendor_app, mtk_em_prop);
+set_prop(vendor_app, vendor_debug_prop);
+set_prop(vendor_app, mediatek_prop);
+
+allow vendor_app cameraserver_service:service_manager find;
+
+# Date : WK18.26
+# Purpose :
+# eng mode camera - save iamges files and log files on external storage
+allow vendor_app media_rw_data_file:dir { create_dir_perms };
+allow vendor_app media_rw_data_file:file { create_file_perms };
+
+# Date : WK18.32
+# Purpose :
+# eng mode camera - save iamges files and log files on external storage
+allow vendor_app vendor_data_file:dir { create_dir_perms };
+allow vendor_app vendor_data_file:file { create_file_perms };

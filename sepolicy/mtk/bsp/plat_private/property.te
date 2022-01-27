@@ -1,6 +1,16 @@
 #=============allow atcid==============
-type ctl_atcid-daemon-u_prop, property_type;
-type ctl_atci_service_prop, property_type;
+type ctl_atcid-daemon-u_prop, property_type, extended_core_property_type;
+type ctl_atci_service_prop, property_type, extended_core_property_type;
+type mtk_atci_sys_prop, property_type, extended_core_property_type;
 
-#=============allow md_init property==============
-type mdmmonitor_prop, property_type;
+#=============mtk aal property=============
+type mtk_aal_prop, property_type, extended_core_property_type;
+
+#=============allow capturepackets property==============
+type capturepackets_prop, property_type, extended_core_property_type;
+
+#=============hdmi service property===============
+type vendor_hdmi_prop, property_type, extended_core_property_type;
+
+#=============allow terserver to set terservice property==============
+type terservice_prop, property_type, extended_core_property_type;

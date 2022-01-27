@@ -7,16 +7,11 @@ init_daemon_domain(mtk_hal_audio)
 hal_client_domain(mtk_hal_audio, hal_allocator)
 
 hwbinder_use(mtk_hal_audio)
+wakelock_use(mtk_hal_audio);
 
 allow mtk_hal_audio ion_device:chr_file r_file_perms;
 
 allow mtk_hal_audio system_file:dir { open read };
-
-userdebug_or_eng(`
-  # used for pcm capture for debug.
-  allow mtk_hal_audio audiohal_data_file:dir create_dir_perms;
-  allow mtk_hal_audio audiohal_data_file:file create_file_perms;
-')
 
 r_dir_file(mtk_hal_audio, proc)
 allow mtk_hal_audio audio_device:dir r_dir_perms;
@@ -47,25 +42,21 @@ allow mtk_hal_audio nvdata_file:dir w_dir_perms;
 allow mtk_hal_audio nvdata_file:file create_file_perms;
 allow mtk_hal_audio sdcard_type:dir remove_name;
 allow mtk_hal_audio sdcard_type:file unlink;
-allow mtk_hal_audio system_data_file:lnk_file read;
 
 # Date : WK14.34
 # Operation : Migration
 # Purpose : nvram access (dumchar case for nand and legacy chip)
 allow mtk_hal_audio nvram_device:chr_file rw_file_perms;
 allow mtk_hal_audio self:netlink_kobject_uevent_socket { create setopt bind };
-#allow mtk_hal_audio self:capability { net_admin };
 
 # Date : WK14.34
 # Operation : Migration
 # Purpose : Smartcard Service
 allow mtk_hal_audio self:netlink_kobject_uevent_socket read;
-allow mtk_hal_audio system_data_file:file open;
 
 # Date : WK14.36
 # Operation : Migration
 # Purpose : media server and bt process communication for A2DP data.and other control flow
-#allow mtk_hal_audio bluetooth:unix_dgram_socket sendto;
 allow mtk_hal_audio bt_a2dp_stream_socket:sock_file write;
 allow mtk_hal_audio bt_int_adp_socket:sock_file write;
 
@@ -111,13 +102,6 @@ allow mtk_hal_audio smartpa_device:chr_file rw_file_perms;
 
 # Date : WK14.41
 # Operation : Migration
-# Purpose : Lossless BT audio
-#allow mtk_hal_audio shell_exec:file { read open execute execute_no_trans };
-#allow mtk_hal_audio system_file:file execute_no_trans;
-#allow mtk_hal_audio zygote_exec:file execute_no_trans;
-
-# Date : WK14.41
-# Operation : Migration
 # Purpose : WFD HID Driver
 allow mtk_hal_audio uhid_device:chr_file rw_file_perms;
 
@@ -146,12 +130,6 @@ allow mtk_hal_audio proc_thermal:dir search;
 allow mtk_hal_audio thermal_manager_data_file:file create_file_perms;
 allow mtk_hal_audio thermal_manager_data_file:dir { rw_dir_perms setattr };
 
-# Data : WK14.46
-# Operation : Migration
-# Purpose : for SMS app
-allow mtk_hal_audio radio_data_file:dir search;
-allow mtk_hal_audio radio_data_file:file open;
-
 # Data : WK14.47
 # Operation : Audio playback
 # Purpose : Music as ringtone
@@ -171,7 +149,6 @@ allow mtk_hal_audio offloadservice_device:chr_file rw_file_perms;
 # Date : WK15.34
 # Operation : Migration
 # Purpose: for camera middleware dump image buffer to sdcard & audio frameworks dump
-allow mtk_hal_audio system_data_file:dir write;
 allow mtk_hal_audio storage_file:dir search;
 allow mtk_hal_audio storage_file:lnk_file {read write};
 allow mtk_hal_audio mnt_user_file:dir {write read search};
@@ -196,7 +173,6 @@ allow mtk_hal_audio sysfs_ccci:dir search;
 allow mtk_hal_audio debugfs_binder:dir search;
 allow mtk_hal_audio kmsg_device:chr_file { open write };
 allow mtk_hal_audio property_socket:sock_file write;
-allow mtk_hal_audio media_rw_data_file:dir { create_dir_perms };
 allow mtk_hal_audio fuse:file rw_file_perms;
 allow mtk_hal_audio init:unix_stream_socket connectto;
 
@@ -219,10 +195,6 @@ allow mtk_hal_audio proc_ged:file {open read write ioctl getattr};
 set_prop(mtk_hal_audio,hwservicemanager_prop);
 allow mtk_hal_audio storage_file:dir search;
 
-# Date : W18.01
-# Add for turn on SElinux in enforcing mode
-allow mtk_hal_audio system_data_file:lnk_file r_file_perms;
-
 # Fix bootup violation
 allow mtk_hal_audio fuse:dir read;
 
@@ -239,10 +211,15 @@ allow mtk_hal_audio self:capability sys_nice;
 # Audio Tuning Tool Android O porting
 binder_call(mtk_hal_audio,audiocmdservice_atci);
 
-# audio dump
-allow mtk_hal_audio media_rw_data_file:file { create read write open append getattr };
 
 # Add for control PowerHAL
 allow mtk_hal_audio mtk_hal_power_hwservice:hwservice_manager find;
 binder_call(mtk_hal_audio, mtk_hal_power)
 binder_call(mtk_hal_audio, merged_hal_service)
+# cm4 smartpa
+allow mtk_hal_audio audio_ipi_device:chr_file { read write ioctl open };
+
+# Date : WK18.21
+# Operation: P migration
+# Purpose: Allow to search /mnt/vendor/nvdata for fstab when using NVM_Init()
+allow mtk_hal_audio mnt_vendor_file:dir search;

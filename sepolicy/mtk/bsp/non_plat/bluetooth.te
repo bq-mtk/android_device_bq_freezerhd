@@ -19,3 +19,7 @@ allow bluetooth proc_secmem:file { read open };
 # Purpose: Allow bluetooth to access surfaceflinger
 allow bluetooth surfaceflinger:fifo_file { read write };
 
+# Date : 2018/5/4
+# Operation : Migration
+# Purpose: Allow bluetooth to get/set mtk_bluetooth_prop
+set_prop(bluetooth, mtk_bluetooth_prop)

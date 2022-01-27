@@ -1,5 +1,5 @@
 # ==============================================
-# Policy File of /system/binfactory Executable File 
+# Policy File of /system/binfactory Executable File
 
 # ==============================================
 # MTK Policy Rule
@@ -14,8 +14,6 @@ allow factory mnld_exec:file rx_file_perms;
 allow resize block_device:dir search;
 
 #Date: WK17.46
-allow factory e2fs_exec:file { read open execute getattr execute_no_trans };
-allow factory fsck_exec:file { read open execute getattr execute_no_trans };
 allow factory kmsg_device:chr_file { write open };
 allow factory proc:file getattr;
 allow factory dm_device:blk_file { read open write ioctl read getattr };
@@ -27,9 +25,7 @@ allow factory cache_block_device:blk_file getattr;
 allow factory protect1_block_device:blk_file getattr;
 allow factory protect2_block_device:blk_file getattr;
 
-
-# Date: W17.50
-# Purpose : Allow factory to call android.hardware.audio@2.0-service-mediatek
+#Purpose : Allow factory to call android.hardware.audio@2.0-service-mediatek
 binder_call(factory, mtk_hal_audio)
 allow factory mtk_hal_audio:binder call;
 allow factory hal_audio_hwservice:hwservice_manager find;
@@ -38,3 +34,7 @@ allow factory proc:file {read open};
 allow factory audio_device:chr_file rw_file_perms;
 allow factory audio_device:dir w_dir_perms;
 allow factory audiohal_prop:property_service set;
+
+#Purpose : Allow factory to get usb_state
+allow factory sysfs_android_usb:dir search;
+allow factory sysfs_android_usb:file r_file_perms;

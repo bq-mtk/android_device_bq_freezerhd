@@ -21,5 +21,6 @@ allow init frp_block_device:blk_file relabelto;
 allow init userdata_block_device:blk_file relabelto;
 allow init mtk_hal_dfps_exec:file getattr;
 
-
-allow init items_device:chr_file r_file_perms;
+# Operation : Migration
+# Purpose : for init reboot operate /dev/RT_Monitor when enable hang detect
+allow init RT_Monitor_device:chr_file r_file_perms;

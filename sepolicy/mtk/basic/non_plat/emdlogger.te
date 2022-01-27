@@ -1,5 +1,4 @@
 #allow emdlogger to set property
-allow emdlogger debug_mdlogger_prop:property_service set;
 allow emdlogger debug_prop:property_service set;
 allow emdlogger persist_mtklog_prop:property_service set;
 allow emdlogger system_radio_prop:property_service set;
@@ -37,7 +36,6 @@ allow emdlogger vfat:dir create_dir_perms;
 allow emdlogger vfat:file create_file_perms;
 
 #modem logger permission in storage in android M version
-#allow emdlogger log_device:chr_file { write open };
 allow emdlogger mnt_user_file:dir search;
 allow emdlogger mnt_user_file:lnk_file read;
 allow emdlogger storage_file:lnk_file read;
@@ -57,13 +55,16 @@ allow emdlogger storage_file:file { create_file_perms };
 
 #permission for read boot mode
 #avc: denied { open }  path="/sys/devices/virtual/BOOT/BOOT/boot/boot_mode" dev="sysfs"
-allow emdlogger sysfs:file { read open };
+allow emdlogger sysfs_boot_mode:file { read open };
 
 # Allow read to sys/kernel/ccci/* files
 allow emdlogger sysfs_ccci:dir search;
 allow emdlogger sysfs_ccci:file r_file_perms;
 
-# Allow read avc: denied { read } for name="mddb" dev="mmcblk0p25" ino=681 
+allow emdlogger sysfs_mdinfo:file r_file_perms;
+allow emdlogger sysfs_mdinfo:dir search;
+
+# Allow read avc: denied { read } for name="mddb" dev="mmcblk0p25" ino=681
 # scontext=u:r:emdlogger:s0 tcontext=u:object_r:system_file:s0 tclass=dir permissive=0
 allow emdlogger system_file:dir read;
 
@@ -77,6 +78,14 @@ allow emdlogger media_rw_data_file:dir { create_dir_perms };
 #security issue control
 allow emdlogger aee_aed:unix_stream_socket connectto;
 
+# For dynamic CCB buffer feature
+#avc: denied { read write } for name="lk_env" dev="proc" ino=4026532192
+#scontext=u:r:emdlogger:s0 tcontext=u:object_r:proc_lk_env:s0 tclass=file permissive=0
+#avc: denied { read } for name="mmcblk0p3" dev="tmpfs" ino=8493 scontext=u:r:emdlogger:s0
+# tcontext=u:object_r:para_block_device:s0 tclass=blk_file permissive=0
+allow emdlogger para_block_device:blk_file { read open write };
+allow emdlogger proc_lk_env:file { read write ioctl open };
+
 #Android O for created file in data
 
     file_type_auto_trans(emdlogger, system_data_file, mdlog_data_file)
@@ -86,4 +95,24 @@ allow emdlogger file_contexts_file:file { read getattr open };
 
 allow emdlogger block_device:dir search;
 allow emdlogger md_block_device:blk_file { read open };
-allow emdlogger self:capability { chown dac_override };
+allow emdlogger self:capability { chown };
+
+
+# purpose: allow emdlogger to access persist.meta.connecttype
+get_prop(emdlogger, meta_connecttype_prop);
+
+# purpose: allow emdlogger to create socket
+allow emdlogger port:tcp_socket { name_connect name_bind };
+allow emdlogger emdlogger:tcp_socket { create connect setopt bind };
+allow emdlogger emdlogger:tcp_socket { bind setopt listen accept read write };
+allow emdlogger node:tcp_socket node_bind;
+
+# Android P migration
+set_prop(emdlogger, persist_mtklog_prop)
+set_prop(emdlogger, vendor_mdl_prop)
+set_prop(emdlogger, vendor_mdl_start_prop)
+set_prop(emdlogger, debug_mdlogger_prop)
+get_prop(emdlogger, vendor_usb_prop)
+set_prop(emdlogger, persist_mdlog_prop)
+set_prop(emdlogger, vendor_mdl_pulllog_prop)
+set_prop(emdlogger, exported_system_radio_prop)

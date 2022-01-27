@@ -22,8 +22,6 @@ allow audioserver bootanim:binder { transfer call };
 
 allow audioserver mtkbootanimation:binder { transfer call };
 
-allow audioserver mtkbootvideo:binder { transfer call };
-
 # Data : WK14.38
 # Operation : Migration
 # Purpose : dump for debug
@@ -74,6 +72,3 @@ allow audioserver storage_file:dir { r_dir_perms };
 # Date : W18.01
 # Add for turn on SElinux in enforcing mode
 allow audioserver self:netlink_kobject_uevent_socket { read create };
-
-# Audio Tuning Tool Android O porting
-allow audioserver audiocmdservice_atci:binder call;

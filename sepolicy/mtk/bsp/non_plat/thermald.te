@@ -7,4 +7,3 @@
 # Purpose : for thermal management to shutdown the phone
 allow thermald proc_thermal:dir search;
 allow thermald proc_thermal:file { read getattr open write };
-

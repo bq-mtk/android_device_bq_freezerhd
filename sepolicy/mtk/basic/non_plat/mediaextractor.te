@@ -6,7 +6,6 @@
 # Purpose: Allow to access ged for gralloc_extra functions
 allow mediaextractor proc_ged:file {open read write ioctl getattr};
 
-# Date : WK18.33
-# Purpose : mtkbootvideo
 #============= mediaextractor ==============
-allow mediaextractor mtkbootvideo:fd use;
+allow mediaextractor vfat:file r_file_perms;
+

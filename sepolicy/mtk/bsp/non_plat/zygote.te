@@ -7,18 +7,6 @@
 # Operation : Migration 
 # Purpose : for MTK boot performance profiling, for access /proc/bootprof
 allow zygote devmap_device:chr_file { read ioctl open };
-allow zygote proc:file write;
-
-# Date : WK14.34
-# Operation : Migration 
-# Purpose : 6571/6572 GMO external memory access(/dev/exm0)
-#allow zygote exm0_device:chr_file { read write ioctl open };
-
-# Date : WK14.34
-# Operation : Migration 
-# Purpose : for CIP project (access /custom partition)
-allow zygote custom_file:dir rw_dir_perms;
-allow zygote custom_file:file create_file_perms;
 
 # Date : WK14.34
 # Operation : Migration 
@@ -50,3 +38,5 @@ allow zygote untrusted_app:fd use;
 # Operation : SQC
 # Purpose : for TTLIA
 allow zygote radio:fd use;
+
+allow zygote init:unix_stream_socket connectto;

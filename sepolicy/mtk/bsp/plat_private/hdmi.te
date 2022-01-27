@@ -25,7 +25,6 @@ init_daemon_domain(hdmi)
 
 # for supporting hdmi
 allow hdmi mtk_hdmi_service:service_manager add;
-#allow hdmi system_server_service:service_manager add;
 allow hdmi block_device:dir search;
 
 allow hdmi servicemanager:binder call;
@@ -43,7 +42,6 @@ allow hdmi self:netlink_kobject_uevent_socket { read bind create setopt };
 
 #for app call
 allow system_app hdmi:binder call;
-allow system_server hdmi:binder call;
 
 #group add net_admin,for setsockopt failed
 allow hdmi self:capability net_admin;
@@ -55,14 +53,11 @@ allow hdmi system_prop:property_service set;
 
 #for hdmi uevent in java
 allow system_app self:netlink_kobject_uevent_socket {read bind create setopt };
-allow system_server self:netlink_kobject_uevent_socket {read bind create setopt };
 
 #============= hdmi ==============
 allow hdmi system_app:binder call;
-allow hdmi system_server:binder call;
 
 #============= system_app ==============
 allow system_app hdmi:binder transfer;
-allow system_server hdmi:binder transfer;
 
-
+set_prop(hdmi, vendor_hdmi_prop);

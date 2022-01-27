@@ -1,4 +1,4 @@
-#cmddumper access external modem ttySDIO2 
+#cmddumper access external modem ttySDIO2
 allow cmddumper ttySDIO_device:chr_file { read write ioctl open };
 
 # for modem logging sdcard access
@@ -18,12 +18,14 @@ allow cmddumper debug_prop:property_service set;
 allow cmddumper media_rw_data_file:file  { create_file_perms };
 allow cmddumper media_rw_data_file:dir { create_dir_perms };
 
-# purpose: access vmodem device
-#allow cmddumper vmodem_device:chr_file { create_file_perms };
-
 # purpose: access plat_file_contexts
 allow cmddumper file_contexts_file:file { read getattr open };
 
 # purpose: access /sys/devices/virtual/BOOT/BOOT/boot/boot_mode
-allow cmddumper sysfs:file { read open };
+allow cmddumper sysfs_boot_mode:file { read open };
 
+# Android P migration
+set_prop(cmddumper, persist_mtklog_prop)
+set_prop(cmddumper, vendor_mdl_prop)
+allow cmddumper tmpfs:lnk_file read;
+allow cmddumper vmodem_device:chr_file { read write ioctl open };

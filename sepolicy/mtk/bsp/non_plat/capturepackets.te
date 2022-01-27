@@ -1,0 +1,8 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK18.17
+# Operation : MDMI Gen93 development
+# Purpose :  For AP Monitor hwservicemanager permissions in capturepackets
+hal_client_domain(capturepackets, mtk_hal_apmonitor)

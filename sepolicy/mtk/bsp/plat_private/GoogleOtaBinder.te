@@ -40,7 +40,5 @@ allow GoogleOtaBinder mtd_device:chr_file { read write open rw_file_perms};
 #to get offset
 allow GoogleOtaBinder ota_package_file:dir search;
 allow GoogleOtaBinder ota_package_file:file { getattr open read write };
-allow GoogleOtaBinder self:capability { dac_override dac_read_search };
-allow GoogleOtaBinder proc:file read;
-allow GoogleOtaBinder sysfs:file read;
-
+allow GoogleOtaBinder mota_proc_file:file read;
+allow GoogleOtaBinder sysfs_dt_firmware_android:file read;

@@ -14,7 +14,6 @@ allow dumpstate mnt_user_file:lnk_file read;
 allow dumpstate storage_file:lnk_file read;
 
 # Purpose: timer_intval. this is neverallow
-allow dumpstate sysfs:file r_file_perms;
 allow dumpstate app_data_file:dir search;
 allow dumpstate kmsg_device:chr_file r_file_perms;
 
@@ -41,3 +40,18 @@ allow dumpstate gpu_device:dir search;
 # android.hardware.camera.provider::ICameraProvider pid=3133 scontext=u:r:dumpstate:s0 tcontext=
 # u:object_r:hal_camera_hwservice:s0 tclass=hwservice_manager
 allow dumpstate hal_camera_hwservice:hwservice_manager find;
+
+#Purpose: Allow dumpstate to read/write /sys/kernel/debug/tracing/buffer_total_size_kb
+userdebug_or_eng(`allow dumpstate debugfs_tracing_debug:file { r_file_perms write };')
+
+# Purpose: Allow dumpstate to write /sys/devices/virtual/timed_output/vibrator/enable
+allow dumpstate sysfs_vibrator:file write;
+
+# Purpose : Allow dumpstate self to sys_nice
+allow dumpstate self:capability sys_nice;
+
+# Date: W1826
+# Purpose : mobile_log_d exec 'logcat -L' via dumpstate
+allow dumpstate mobile_log_d:fd use;
+allow dumpstate mobile_log_d:fifo_file write;
+allow dumpstate mobile_log_d:unix_stream_socket { read write };

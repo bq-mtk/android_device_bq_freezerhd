@@ -56,7 +56,7 @@ allow wo_ipsec wo_charon_exec:file execute_no_trans;
 allow wo_ipsec fwmarkd_socket:sock_file write;
 
 # Purpose :  kernel ip/route operations
-allow wo_ipsec self:capability { net_admin net_bind_service dac_override kill };
+#allow wo_ipsec self:capability { net_admin net_bind_service dac_override kill };
 
 # Purpose :  send/receive packet to/from peer
 allow wo_ipsec self:tcp_socket { write getattr connect read getopt create };
@@ -95,5 +95,3 @@ allow wo_ipsec system_data_file:dir getattr;
 allow wo_ipsec vendor_toolbox_exec:file { getattr execute execute_no_trans };
 allow wo_ipsec kernel:system module_request;
 
-#allow wo_ipsec shell_exec:file { execute read open execute_no_trans getattr };
-#typeattribute wo_ipsec vendor_executes_system_violators;

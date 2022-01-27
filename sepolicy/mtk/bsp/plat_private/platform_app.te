@@ -1,5 +1,5 @@
 # ==============================================
-# MTK Policy Rule 
+# MTK Policy Rule
 # ==============================================
 
 # Date : 2014/10/28
@@ -14,14 +14,33 @@ allow platform_app system_app_data_file:file {read write};
 # Package: com.mediatek.mdmlsample
 allow platform_app md_monitor:unix_stream_socket connectto;
 
-# Date : 2015/08/17
-# Operation : Migration
-# Purpose : Allow ppl agent app to find ppl agent servive
-# Package: com.android.systemui
-allow platform_app ppl_agent_service:service_manager find;
-
 # Date : 2015/09/06
 # Operation : SQC
 # Purpose : [NFC][can not get nfc service]
 # Package: com.android.gallery3d
 allow platform_app nfc_service:service_manager find;
+
+# Date : 2017/12/21
+# Operation: IT
+# Purpose : For hongbao optimization
+allow platform_app mtk_connmetrics_service:service_manager find;
+
+# Date : 2018/07/11
+# Operation: IT
+# Purpose : To launch capturepackets process from MDMI(platform_app)
+set_prop(platform_app, capturepackets_prop);
+
+# Date : 2018/07/27
+# Operation : Migration
+# Purpose : allow platform_app to find aal_service
+allow platform_app aal_service:service_manager { find };
+
+# Date : 2018/09/10
+# Operation : MDMI SQC
+# Purpose : allow platform_app to access md_monitor directory
+allow platform_app md_monitor_data_file:dir { read getattr open search };
+
+# Date : 2018/09/10
+# Operation : MDMI SQC
+# Purpose : allow platform_app to access md_monitor files
+allow platform_app md_monitor_data_file:file { read getattr open };

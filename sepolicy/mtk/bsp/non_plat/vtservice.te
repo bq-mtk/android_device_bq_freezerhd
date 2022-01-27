@@ -39,7 +39,6 @@ init_daemon_domain(vtservice_hidl)
 # Operation : VT development
 # Purpose : Add vtservice to support video telephony functionality
 #           3G VT/ViLTE both use this service which will also communication with IMCB/Rild
-allow vtservice self:capability dac_override;
 allow vtservice soc_vt_svc_socket:sock_file write;
 allow vtservice soc_vt_tcv_socket:sock_file write;
 allow vtservice rild_oem_socket:sock_file write;
@@ -196,10 +195,10 @@ allow vtservice vtservice_service:service_manager add;
 #=====================================
 allow vtservice hwservicemanager:binder call;
 allow vtservice hwservicemanager_prop:file { getattr open read }; 
-allow vtservice debugfs_tracing:file write;
+#allow vtservice debugfs_tracing:file write;
 allow vtservice system_file:dir read;
 allow vtservice system_file:dir open; 
-allow vtservice debugfs_tracing:file open;
+#allow vtservice debugfs_tracing:file open;
 
 # give permission for hal client
 allow vtservice mtk_hal_videotelephony_hwservice :hwservice_manager find;
@@ -247,12 +246,12 @@ allow vtservice hal_graphics_allocator_default:fd use;
 allow vtservice hal_graphics_allocator_hwservice:hwservice_manager find;
 allow vtservice hal_graphics_mapper_hwservice:hwservice_manager find;
 allow vtservice netd:unix_stream_socket connectto;
-allow vtservice proc:file { ioctl open read };
 allow vtservice ion_device:chr_file ioctl;
 allow vtservice MTK_SMI_device:chr_file { read write ioctl open };
 allow vtservice mtk_em_video_venc_h264_prop:file read;
+allow vtservice mtk_em_video_log_omx_prop:file r_file_perms;
+allow vtservice mtk_em_video_log_vdec_prop:file r_file_perms;
 allow vtservice proc:file getattr;
-allow vtservice sysfs:file rw_file_perms;
 allow vtservice mtk_cmdq_device:chr_file { read ioctl open };
 allow vtservice_hidl proc:file read;
 allow vtservice mtk_em_video_venc_h264_prop:file r_file_perms;
@@ -264,3 +263,24 @@ allow vtservice merged_hal_service:binder call;
 # Purpose : DISP access
 allow vtservice graphics_device:chr_file { ioctl open read };
 allow vtservice graphics_device:dir search;
+
+# Date : WK18.10
+# Operation : SQC
+# Purpose : Allow perfmgr FPSGO access
+allow vtservice proc_perfmgr:dir {read search};
+allow vtservice proc_perfmgr:file {open read ioctl};
+
+# Date: 2018/07/19
+# Operation: P Migration
+get_prop(vtservice, vendor_default_prop)
+get_prop(vtservice, vendor_vt_prop)
+
+# Date: 2018/08/24
+# Operation: add mdp
+allow vtservice mtk_hal_mms_hwservice:hwservice_manager find;
+allow vtservice cameraserver:dir search;
+allow vtservice cameraserver:file { getattr open read };
+allow vtservice debug_bq_dump_prop:file read;
+allow vtservice graphics_debug_prop:file { open read };
+allow vtservice mtk_hal_mms:binder call;
+allow vtservice proc_uptime:file read;

@@ -24,12 +24,6 @@ type netdagent, domain;
 #permissive netdagent;
 init_daemon_domain(netdagent)
 domain_auto_trans(netdagent, netutils_wrapper_exec, netutils_wrapper)
-#unconfined_domain(netdagent)
-
-#allow netdagent system_file:file execute_no_trans;
-#allow netdagent self:capability { net_admin net_raw };
-#allow netdagent self:rawip_socket { create getopt setopt };
-#allow netdagent self:udp_socket { create ioctl };
 
 allow netdagent devpts:chr_file { open read write };
 allow netdagent system_data_file:dir getattr;
@@ -41,7 +35,6 @@ allow netdagent init:unix_stream_socket connectto;
 allow netdagent self:netlink_route_socket { connect create setopt bind getattr nlmsg_read nlmsg_write read write };
 
 set_prop(netdagent, netdagent_prop)
-set_prop(netdagent, system_prop)
 allow netdagent proc_net:file { getattr open write read };
 allow netdagent kernel:system module_request;
 
@@ -51,5 +44,4 @@ allow netdagent hidl_base_hwservice:hwservice_manager add;
 allow netdagent hwservicemanager:binder { call transfer };
 allow netdagent hwservicemanager_prop:file { getattr open read };
 hal_server_domain(netdagent, mtk_hal_netdagent);
-
 

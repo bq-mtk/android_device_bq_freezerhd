@@ -96,7 +96,6 @@ allow init protect_f_data_file:dir mounton;
 allow init protect_s_data_file:dir mounton;
 allow init nvcfg_file:dir mounton;
 allow init persist_data_file:dir mounton;
-#allow init system_file:dir setattr;
 allow init tmpfs:lnk_file create;
 
 # boot process denial clean up
@@ -126,3 +125,13 @@ allow init vendor_file:system module_load;
 # Operation : feature porting
 # Purpose : kernel module verification
 allow init kernel:key search;
+
+# Date : WK17.50
+# Operation : boost cpu while booting
+# Purpose : enhance boottime
+allow init proc_perfmgr:file write;
+allow init proc_wmtdbg:file write;
+
+# Date : W18.20
+# Operation : mount soc vendor's partition when booting
+allow init mnt_vendor_file:dir mounton;

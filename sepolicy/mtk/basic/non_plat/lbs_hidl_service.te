@@ -8,3 +8,4 @@ vndbinder_use(lbs_hidl_service)
 r_dir_file(lbs_hidl_service, system_file)
 unix_socket_connect(lbs_hidl_service, agpsd, mtk_agpsd);
 allow lbs_hidl_service mtk_agpsd:unix_dgram_socket sendto;
+allow lbs_hidl_service mnld:unix_dgram_socket sendto;
