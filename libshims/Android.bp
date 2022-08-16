@@ -1,0 +1,23 @@
+cc_library_shared {
+    name: "libshims_fence",
+    srcs: ["fence/libshim_fence.cpp"],
+    proprietary: true,
+}
+
+cc_library_shared {
+    name: "libshims_libshowlogo",
+    shared_libs: [
+        "libbinder",
+        "libgui",
+        "libui",
+        "libutils",
+    ],
+    srcs: ["libshowlogo/libshim_libshowlogo.cpp"],
+}
+
+cc_library_shared {
+    name: "libshims_pthread",
+    shared_libs: ["libc"],
+    srcs: ["pthread/libshim_pthread.cpp"],
+    proprietary: true,
+}
