@@ -1,13 +1,7 @@
-DEVICE_PATH := device/bq/freezerhd
-
-# HIDL
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
-DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
-
+# Use the non-open-source parts, if they're present
 -include vendor/bq/freezerhd/BoardConfigVendor.mk
 
-# Headers
-TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
+DEVICE_PATH := device/bq/freezerhd
 
 # Platform
 TARGET_BOARD_PLATFORM := mt8163
@@ -25,6 +19,9 @@ TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
+
+# Headers
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 # 64 bit binder
 TARGET_USES_64_BIT_BINDER := true
@@ -46,13 +43,24 @@ BOARD_VENDOR_KERNEL_MODULES := \
     $(vendor_lkm_dir)/wmt_drv.ko
 
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-BOARD_KERNEL_CMDLINE := "bootopt=64S3,32N2,64N2 buildvariant=userdebug androidboot.selinux=permissive"
-BOARD_MKBOOTIMG_ARGS := --pagesize 2048 --base 0x40078000 --kernel_offset 0x00008000 --ramdisk_offset 0x14f88000 --second_offset 0x00e88000 --tags_offset 0x13f88000 --cmdline $(BOARD_KERNEL_CMDLINE)
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 buildvariant=userdebug
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_MKBOOTIMG_ARGS := \
+    --pagesize 2048 \
+    --base 0x40078000 \
+    --kernel_offset 0x00008000 \
+    --ramdisk_offset 0x14f88000 \
+    --second_offset 0x00e88000 \
+    --tags_offset 0x13f88000 \
+    --cmdline "$(BOARD_KERNEL_CMDLINE)"
 
-# For Mediatek Boot Image Headers
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
 
-# MediaTek Flags
+# HIDL
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
+
+# MediaTek
 BOARD_HAS_MTK_HARDWARE := true
 BOARD_USES_MTK_HARDWARE := true
 MTK_HARDWARE := true
@@ -60,10 +68,8 @@ MTK_HARDWARE := true
 # Charger
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/BOOT/BOOT/boot/boot_mode
 
-# Build Vendor Image
-TARGET_COPY_OUT_VENDOR := vendor
+# Vendor
 BOARD_USES_VENDORIMAGE := true
-BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Bootanimation
 TARGET_BOOTANIMATION_MULTITHREAD_DECODE := true
@@ -85,13 +91,11 @@ WIFI_DRIVER_STATE_CTRL_PARAM := /dev/wmtWifi
 WIFI_DRIVER_STATE_ON := 1
 WIFI_DRIVER_STATE_OFF := 0
 
-# BT
+# Bluetooth
 BOARD_HAS_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_MTK := true
-BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 
-# DT2W
+# Power
 TARGET_TAP_TO_WAKE_NODE := "/proc/gesture_open"
 
 # Graphics
@@ -105,28 +109,32 @@ TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := false
 # Panel vsync offsets
 PRESENT_TIME_OFFSET_FROM_VSYNC_NS := 0
 
-# Filesystem
+# Partition size(s)
+BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2684354560
 BOARD_CACHEIMAGE_PARTITION_SIZE := 444596224
 BOARD_VENDORIMAGE_PARTITION_SIZE := 536870912
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 11865161728
-BOARD_NEEDS_VENDORIMAGE_SYMLINK :=  true
-BOARD_FLASH_BLOCK_SIZE := 131072
+
+TARGET_COPY_OUT_VENDOR := vendor
+TARGET_COPY_OUT_SYSTEM := system
+
+# Filesystem
 TARGET_USES_MKE2FS := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
+
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # FS Config
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # OTAs
 BLOCK_BASED_OTA := true
-TARGET_OTA_ASSERT_DEVICE:= freezerhd
-
-# Seccomp filters
-BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/seccomp
+TARGET_OTA_ASSERT_DEVICE := freezerhd
 
 # SELinux
 SELINUX_IGNORE_NEVERALLOWS := true
@@ -148,7 +156,7 @@ BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
 
-# Software Gatekeeper
+# Gatekeeper
 BOARD_USE_SOFT_GATEKEEPER := true
 
 # Charger
@@ -158,29 +166,15 @@ BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/manifest.xml
 DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/configs/compatibility_matrix.xml
 
-# Enable Minikin text layout engine (will be the default soon)
-USE_MINIKIN := true
-
-# Webkit
-ENABLE_WEBGL := true
-TARGET_FORCE_CPU_UPLOAD := true
-
 # Camera
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
-TARGET_CAMERASERVICE_CLOSES_NATIVE_HANDLES := true
 TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY := libcamera_parameters_mtk
 
-# System Properties
+# Properties
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
-# Sensors
-TARGET_NO_SENSOR_PERMISSION_CHECK := true
-
-# Use dlmalloc instead of jemalloc for mallocs
-MALLOC_SVELTE := true
-
-# Recovery.fstab
+# Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 
 # Shims
