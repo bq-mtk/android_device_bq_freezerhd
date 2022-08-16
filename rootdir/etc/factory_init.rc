@@ -3,7 +3,7 @@
 # IMPORTANT: Do not create world writable files or directories.
 # This is a common source of Android security bugs.
 #
-import ${ro.mtkrc.path}factory_init.connectivity.rc
+import /vendor/etc/init/hw/factory_init.connectivity.rc
 import /vendor/etc/init/hw/factory_init.project.rc
 import /init.environ.rc
 import /vendor/etc/init/hw/init.aee.rc
@@ -192,7 +192,7 @@ on fs
     write /proc/bootprof "INIT:Mount_START"
     mkdir /dev/block/platform/mtk-msdc.0
     symlink ../soc/11230000.mmc /dev/block/platform/mtk-msdc.0/11230000.MSDC0
-    mount_all /vendor/etc/fstab.mt8163 ${ro.mtkrc.path}multi_init.rc
+    mount_all /vendor/etc/fstab.mt8163 /vendor/etc/init/hw/multi_init.rc
     write /proc/bootprof "INIT:Mount_END"
 # mount different fs end
 

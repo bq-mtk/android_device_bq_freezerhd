@@ -165,10 +165,6 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service
 
-# MTKRC Path
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.mtkrc.path=/vendor/etc/init/hw/
-
 # Net
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0 \
