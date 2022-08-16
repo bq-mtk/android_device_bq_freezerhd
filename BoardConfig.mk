@@ -187,7 +187,8 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 TARGET_LD_SHIM_LIBS := \
     /vendor/lib/libMtkOmxVenc.so|libshims_fence.so \
     /vendor/lib/libMtkOmxVdecEx.so|libshims_fence.so \
-    /system/lib/libshowlogo.so|libshims_libshowlogo.so
+    /system/lib/libshowlogo.so|libshims_libshowlogo.so \
+    /vendor/bin/mnld|libshims_pthread.so
 
 # Treble
 BOARD_VNDK_VERSION := current

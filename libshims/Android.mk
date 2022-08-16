@@ -15,3 +15,12 @@ LOCAL_SHARED_LIBRARIES := libbinder libgui libui libutils
 LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := libshowlogo/libshim_libshowlogo.cpp
 include $(BUILD_SHARED_LIBRARY)
+
+# Pthread Mutex Shim
+include $(CLEAR_VARS)
+LOCAL_MODULE := libshims_pthread
+LOCAL_SHARED_LIBRARIES := libc
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := pthread/libshim_pthread.cpp
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_SHARED_LIBRARY)
