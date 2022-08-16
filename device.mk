@@ -237,9 +237,9 @@ PRODUCT_PACKAGES += \
 
 # Shims
 PRODUCT_PACKAGES += \
-    libshims_fence \
-    libshims_libshowlogo \
-    libshims_pthread
+    libshim_fence \
+    libshim_gui \
+    libshim_pthread
 
 # Thermal
 PRODUCT_PACKAGES += \
