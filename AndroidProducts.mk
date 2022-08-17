@@ -16,3 +16,8 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_freezerhd.mk
+
+COMMON_LUNCH_CHOICES := \
+    lineage_freezerhd-eng \
+    lineage_freezerhd-user \
+    lineage_freezerhd-userdebug
