@@ -1,8 +1,8 @@
 diff --git a/services/surfaceflinger/SurfaceFlinger.cpp b/services/surfaceflinger/SurfaceFlinger.cpp
-index c2be855..eb053e7 100644
+index db26808..9dde654 100644
 --- a/services/surfaceflinger/SurfaceFlinger.cpp
 +++ b/services/surfaceflinger/SurfaceFlinger.cpp
-@@ -315,6 +315,26 @@ SurfaceFlinger::SurfaceFlinger() : SurfaceFlinger(SkipInitialization) {
+@@ -339,6 +339,25 @@ SurfaceFlinger::SurfaceFlinger(Factory& factory) : SurfaceFlinger(factory, SkipI
              SurfaceFlinger::primaryDisplayOrientation = DisplayState::eOrientationDefault;
              break;
      }
@@ -25,7 +25,6 @@ index c2be855..eb053e7 100644
 +        }
 +    }
 +
-+
      ALOGV("Primary Display Orientation is set to %2d.", SurfaceFlinger::primaryDisplayOrientation);
-
-     mPrimaryDispSync.init(SurfaceFlinger::hasSyncFramework, SurfaceFlinger::dispSyncPresentTimeOffset);
+ 
+     mInternalDisplayPrimaries = sysprop::getDisplayNativePrimaries();
